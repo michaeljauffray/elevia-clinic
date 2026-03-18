@@ -924,7 +924,7 @@ em { font-style: italic; color: var(--green-mid); }
   padding-bottom: 60px;
   border-bottom: 1px solid rgba(255,255,255,.1);
 }
-.footer-brand .footer-logo img { height: 36px; width: auto; margin-bottom: 20px; filter: brightness(0) invert(1); }
+.footer-brand .footer-logo img { height: 36px; width: auto; margin-bottom: 20px; }
 .footer-brand p {
   font-size: 14px;
   color: rgba(255,255,255,.55);
