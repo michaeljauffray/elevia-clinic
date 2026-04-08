@@ -281,9 +281,15 @@
   }
   .testimonial-video {
     position: relative;
-    aspect-ratio: 4/3;
+    aspect-ratio: 3/4;
     background: linear-gradient(135deg, #d4cdc4, #bfb8ae);
     display: flex; align-items: center; justify-content: center;
+  }
+  .testimonial-video iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
   }
   .testimonial-video .play-btn {
     width: 52px; height: 52px;
@@ -519,20 +525,17 @@
     <div class="testimonial-grid">
       <div class="testimonial-card fade-in">
         <div class="testimonial-video">
-          <div class="play-btn"><svg viewBox="0 0 16 16"><polygon points="4,1 14,8 4,15"/></svg></div>
-          <span class="video-badge">Video</span>
+          <iframe src="https://player.vimeo.com/video/1175247231?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Amber"></iframe>
         </div>
       </div>
       <div class="testimonial-card fade-in" style="transition-delay: 0.1s">
         <div class="testimonial-video">
-          <div class="play-btn"><svg viewBox="0 0 16 16"><polygon points="4,1 14,8 4,15"/></svg></div>
-          <span class="video-badge">Video</span>
+          <iframe src="https://player.vimeo.com/video/1175246312?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Alison"></iframe>
         </div>
       </div>
       <div class="testimonial-card fade-in" style="transition-delay: 0.2s">
         <div class="testimonial-video">
-          <div class="play-btn"><svg viewBox="0 0 16 16"><polygon points="4,1 14,8 4,15"/></svg></div>
-          <span class="video-badge">Video</span>
+          <iframe src="https://player.vimeo.com/video/1175247621?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Jenny"></iframe>
         </div>
       </div>
     </div>
