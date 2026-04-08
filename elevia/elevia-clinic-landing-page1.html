@@ -281,8 +281,9 @@
   }
   .testimonial-video {
     position: relative;
-    aspect-ratio: 9/16;
+    aspect-ratio: 3/4;
     background: #000;
+    overflow: hidden;
     display: flex; align-items: center; justify-content: center;
   }
   .testimonial-video iframe {
@@ -290,6 +291,11 @@
     top: 0; left: 0;
     width: 100%; height: 100%;
     border: 0;
+  }
+  /* First video is 1:1 square — widen the iframe to fill the 3:4 container and crop sides */
+  .testimonial-card:first-child .testimonial-video iframe {
+    width: 133.34%;
+    left: -16.67%;
   }
   .testimonial-video .play-btn {
     width: 52px; height: 52px;
