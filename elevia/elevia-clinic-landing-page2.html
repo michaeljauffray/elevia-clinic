@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elevia Clinic — Thyroid & Hormone Health</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --teal: #1a5c52;
+    --teal-dark: #0f3d36;
+    --teal-light: #2a7a6e;
+    --cream: #f8f5f0;
+    --cream-dark: #efe9e0;
+    --gold: #c9a96e;
+    --text-dark: #1e2a27;
+    --text-mid: #4a5a56;
+    --text-light: #7a8a86;
+    --white: #ffffff;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Libre Franklin', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); color: var(--text-dark); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(26,92,82,0.08);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 14px 32px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav-logo img { height: 36px; width: auto; }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 100px 32px 60px;
+    background: var(--cream);
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  .hero-text { }
+  .hero-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 16px;
+    display: block;
+  }
+  .hero-text h1 {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.1;
+    color: var(--teal-dark);
+    margin-bottom: 20px;
+  }
+  .hero-text p {
+    font-size: 16px; color: var(--text-mid); margin-bottom: 32px; line-height: 1.7;
+    max-width: 440px;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--teal); color: var(--white);
+    padding: 14px 36px; border-radius: 6px;
+    font-size: 0.95rem; font-weight: 600;
+    text-decoration: none; letter-spacing: 0.01em;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
+  .hero-image { border-radius: 16px; overflow: hidden; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-image-placeholder {
+    width: 100%; aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #c8ddd9, #a8c5bf);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-image-placeholder span { font-size: 48px; opacity: 0.4; }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--teal);
+    padding: 20px 32px;
+  }
+  .trust-bar-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: center; gap: 24px;
+    flex-wrap: wrap;
+  }
+  .trust-avatars { display: flex; }
+  .trust-avatars span {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--cream-dark);
+    border: 2px solid var(--white);
+    margin-left: -8px; display: flex; align-items: center; justify-content: center;
+    font-size: 14px; overflow: hidden;
+  }
+  .trust-avatars span:first-child { margin-left: 0; }
+  .trust-text {
+    color: var(--white); font-size: 14px; font-weight: 400;
+  }
+  .trust-text strong { font-weight: 600; }
+
+  /* ── SERVICES ── */
+  .services-section { padding: 80px 32px; background: var(--white); }
+  .services-inner { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
+    display: block;
+  }
+  .services-section h2 {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3vw, 40px);
+    color: var(--teal-dark); margin-bottom: 12px;
+  }
+  .services-section .subtitle {
+    font-size: 15px; color: var(--text-mid); margin-bottom: 48px;
+    max-width: 600px;
+  }
+  .services-section .subtitle em { color: var(--teal); font-style: normal; text-decoration: underline; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
+  }
+  .service-card {
+    border: 1px solid #e0dbd4; border-radius: 12px; overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  .service-card-img {
+    aspect-ratio: 1/1;
+    background: var(--cream-dark);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .service-card-img img { width: 100%; height: 100%; object-fit: cover; }
+  .service-card-img .plus {
+    position: absolute; bottom: 10px; right: 10px;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--white); color: var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 300; box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+  .service-card-body { padding: 14px; }
+  .service-card-body h4 { font-size: 14px; font-weight: 600; color: var(--text-dark); margin-bottom: 10px; }
+  .btn-outline {
+    display: inline-block;
+    border: 1.5px solid var(--teal); color: var(--teal);
+    padding: 7px 16px; border-radius: 5px;
+    font-size: 12px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .btn-outline:hover { background: var(--teal); color: var(--white); }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-section { padding: 80px 32px; background: var(--cream); }
+  .testimonials-inner { max-width: 1100px; margin: 0 auto; }
+  .testimonials-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 40px; flex-wrap: wrap; gap: 16px;
+  }
+  .testimonials-header h2 {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3vw, 40px);
+    color: var(--teal-dark);
+    max-width: 300px; line-height: 1.15;
+  }
+  .btn-secondary {
+    display: inline-block;
+    border: 1.5px solid var(--teal); color: var(--teal);
+    padding: 10px 24px; border-radius: 6px;
+    font-size: 13px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s; white-space: nowrap;
+  }
+  .btn-secondary:hover { background: var(--teal); color: var(--white); }
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .testimonial-card {
+    background: var(--white);
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .testimonial-video {
+    position: relative;
+    aspect-ratio: 2/3;
+    background: #1a1a1a;
+    overflow: hidden;
+  }
+  .testimonial-video iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+  .testimonial-quote {
+    padding: 20px;
+  }
+  .testimonial-quote .quote-mark {
+    font-family: var(--serif); font-size: 48px; color: var(--teal);
+    line-height: 1; margin-bottom: 8px; display: block;
+  }
+  .testimonial-quote p {
+    font-size: 13px; color: var(--text-mid); line-height: 1.6;
+    font-style: italic; margin-bottom: 10px;
+  }
+  .testimonial-quote .author {
+    font-size: 12px; font-weight: 600; color: var(--teal);
+    font-style: normal;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how-section { padding: 80px 32px; background: var(--white); }
+  .how-inner { max-width: 1100px; margin: 0 auto; }
+  .how-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    margin-bottom: 48px; flex-wrap: wrap; gap: 20px;
+  }
+  .how-header-text h2 {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3vw, 40px);
+    color: var(--teal-dark); margin-bottom: 10px;
+  }
+  .how-header-text p {
+    font-size: 14px; color: var(--text-mid); max-width: 420px; line-height: 1.6;
+  }
+  .how-header-text p em { color: var(--teal); font-style: normal; text-decoration: underline; }
+  .how-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+  .how-card {
+    background: var(--cream); border-radius: 12px;
+    padding: 28px 20px;
+  }
+  .how-card-img {
+    width: 100%; aspect-ratio: 4/3;
+    background: var(--cream-dark); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px; font-size: 40px;
+  }
+  .how-card-num {
+    font-size: 11px; font-weight: 700; letter-spacing: .1em;
+    color: var(--teal); text-transform: uppercase; margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .how-card-num::before {
+    content: attr(data-num);
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--teal); color: white;
+    font-size: 11px; display: flex; align-items: center; justify-content: center;
+    font-weight: 700; flex-shrink: 0;
+  }
+  .how-card h4 { font-size: 14px; font-weight: 600; color: var(--text-dark); line-height: 1.4; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 3px solid var(--teal);
+    background: var(--white);
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 40px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+  footer img { height: 32px; }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-links a {
+    color: var(--text-mid); text-decoration: none;
+    font-size: 13px; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--teal); }
+  .footer-bottom {
+    text-align: center; padding: 16px 32px;
+    background: var(--cream); font-size: 12px; color: var(--text-light);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .testimonials-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+    .how-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .how-grid { grid-template-columns: 1fr; }
+    .nav-inner { padding: 12px 20px; }
+    .hero { padding: 90px 20px 50px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="logo-teal.SVG.svg" alt="Elevia Clinic" />
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="hero-eyebrow">Virtual Telehealth Clinic</span>
+      <h1>Thyroid & Hormone Care, From Anywhere</h1>
+      <p>Hormone changes can cause derailing symptoms years before you reach menopause. Elevia Clinic's virtual care can help you feel like yourself again.</p>
+      <a href="#booking" class="btn-primary">Book Now</a>
+    </div>
+    <div class="hero-image">
+      <div class="hero-image-placeholder">
+        <img src="https://cdn.prod.website-files.com/6764f01ec2340008975b3800/6764f01ec2340008975b380f_home-hero-image.jpg" alt="Elevia Clinic" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-avatars">
+      <span>👩</span>
+      <span>👩🏽</span>
+      <span>👩🏻</span>
+      <span>👩🏾</span>
+      <span>👩🏼</span>
+    </div>
+    <p class="trust-text"><strong>Join more than 50,000 women</strong> who love and trust Elevia Clinic for their hormone health.</p>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <div class="services-inner">
+    <span class="section-eyebrow">Meet Elevia Clinic</span>
+    <h2>Expert, Personalized Virtual Care</h2>
+    <p class="subtitle">One-size-fits-all doesn't work for hormone health. Discover <em>science-backed treatments</em> tailored to your specific concerns.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="https://cdn.prod.website-files.com/6764f01ec2340008975b3800/6764f01ec2340008975b3811_icon-box-image-1.png" alt="Thyroid Health" />
+          <span class="plus">+</span>
+        </div>
+        <div class="service-card-body">
+          <h4>Thyroid Health</h4>
+          <a href="index.html#booking" class="btn-outline">Book a Visit</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="https://cdn.prod.website-files.com/6764f01ec2340008975b3800/6764f01ec2340008975b3875_icon-box-image-2.png" alt="Hormonal Optimization" />
+          <span class="plus">+</span>
+        </div>
+        <div class="service-card-body">
+          <h4>Hormonal Optimization</h4>
+          <a href="index.html#booking" class="btn-outline">Book a Visit</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="https://cdn.prod.website-files.com/6764f01ec2340008975b3800/6764f01ec2340008975b3874_icon-box-image-3.png" alt="Menopause Support" />
+          <span class="plus">+</span>
+        </div>
+        <div class="service-card-body">
+          <h4>Menopause Support</h4>
+          <a href="index.html#booking" class="btn-outline">Book a Visit</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-img" style="background: var(--cream-dark);">
+          <span style="font-size:48px;">⚖️</span>
+          <span class="plus">+</span>
+        </div>
+        <div class="service-card-body">
+          <h4>Weight & Metabolism</h4>
+          <a href="index.html#booking" class="btn-outline">Book a Visit</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-img" style="background: var(--cream-dark);">
+          <span style="font-size:48px;">🌸</span>
+          <span class="plus">+</span>
+        </div>
+        <div class="service-card-body">
+          <h4>Fertility Support</h4>
+          <a href="index.html#booking" class="btn-outline">Book a Visit</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="testimonials-inner">
+    <div class="testimonials-header">
+      <div>
+        <span class="section-eyebrow">Don't just take our word for it</span>
+        <h2>True Stories Of Transformation</h2>
+      </div>
+      <a href="index.html#booking" class="btn-secondary">Book a Consultation</a>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-video">
+          <iframe src="https://player.vimeo.com/video/1181093914?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Amber"></iframe>
+        </div>
+        <div class="testimonial-quote">
+          <span class="quote-mark">"</span>
+          <p>I feel more in tune with my body than ever before. Elevia Clinic actually listened and gave me real answers.</p>
+          <span class="author">— Amber</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-video">
+          <iframe src="https://player.vimeo.com/video/1181094394?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Alison"></iframe>
+        </div>
+        <div class="testimonial-quote">
+          <span class="quote-mark">"</span>
+          <p>I'm just a different person compared to how I was a few months ago. My energy is back and I feel like myself again.</p>
+          <span class="author">— Alison</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-video">
+          <iframe src="https://player.vimeo.com/video/1181094236?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Jenny"></iframe>
+        </div>
+        <div class="testimonial-quote">
+          <span class="quote-mark">"</span>
+          <p>I have to tell you — the difference in how I feel is incredible. I wish I had found Elevia Clinic sooner.</p>
+          <span class="author">— Jenny</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="booking">
+  <div class="how-inner">
+    <div class="how-header">
+      <div class="how-header-text">
+        <h2>How Elevia Clinic Works</h2>
+        <p>You're in good hands at Elevia Clinic. Our protocols are defined by <em>practitioners with decades of experience</em> in women's hormone health.</p>
+      </div>
+      <a href="index.html#booking" class="btn-primary">Book Now</a>
+    </div>
+    <div class="how-grid">
+
+      <div class="how-card">
+        <div class="how-card-img">🖥️</div>
+        <div class="how-card-num" data-num="1">Step 1</div>
+        <h4>Book your virtual visit</h4>
+      </div>
+
+      <div class="how-card">
+        <div class="how-card-img">💬</div>
+        <div class="how-card-num" data-num="2">Step 2</div>
+        <h4>Discuss solutions with Inna ND</h4>
+      </div>
+
+      <div class="how-card">
+        <div class="how-card-img">📋</div>
+        <div class="how-card-num" data-num="3">Step 3</div>
+        <h4>Get your personalized Care Plan</h4>
+      </div>
+
+      <div class="how-card">
+        <div class="how-card-img">📈</div>
+        <div class="how-card-num" data-num="4">Step 4</div>
+        <h4>Make progress with regular check-ins</h4>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <img src="logo-teal.SVG.svg" alt="Elevia Clinic" />
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="mailto:admin@eleviaclinic.com">admin@eleviaclinic.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 Elevia Clinic. All rights reserved. Virtual telehealth clinic for women's health.</div>
+</footer>
+
+</body>
+</html>
