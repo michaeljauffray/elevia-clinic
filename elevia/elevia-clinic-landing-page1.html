@@ -282,9 +282,8 @@
   .testimonial-video {
     position: relative;
     aspect-ratio: 3/4;
-    background: #000;
+    background: #1a1a1a;
     overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
   }
   .testimonial-video iframe {
     position: absolute;
@@ -292,11 +291,7 @@
     width: 100%; height: 100%;
     border: 0;
   }
-  /* First video is 1:1 square — widen the iframe to fill the 3:4 container and crop sides */
-  .testimonial-card:first-child .testimonial-video iframe {
-    width: 133.34%;
-    left: -16.67%;
-  }
+
   .testimonial-video .play-btn {
     width: 52px; height: 52px;
     background: var(--teal);
@@ -530,7 +525,7 @@
     <p class="subtitle fade-in">Don't just take our word for it.</p>
     <div class="testimonial-grid">
       <div class="testimonial-card fade-in">
-        <div class="testimonial-video"
+        <div class="testimonial-video" style="aspect-ratio:1/1">
           <iframe src="https://player.vimeo.com/video/1175247231?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Amber"></iframe>
         </div>
       </div>
