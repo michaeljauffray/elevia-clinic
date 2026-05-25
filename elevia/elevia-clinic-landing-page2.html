@@ -159,6 +159,64 @@
   }
   .btn-outline:hover { background: var(--teal); color: var(--white); }
 
+  /* ── SERVICE MODAL ── */
+  .service-card { cursor: pointer; }
+  .service-modal-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(30,42,39,0.55);
+    display: none; align-items: center; justify-content: center;
+    padding: 24px;
+  }
+  .service-modal-overlay.open { display: flex; }
+  .service-modal {
+    background: var(--cream);
+    border-radius: 14px;
+    width: 100%; max-width: 880px;
+    max-height: 90vh; overflow: hidden;
+    display: grid; grid-template-columns: 1fr 1fr;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+  }
+  .service-modal-img {
+    background: var(--cream-dark);
+    overflow: hidden;
+  }
+  .service-modal-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .service-modal-content {
+    padding: 36px 32px 32px;
+    overflow-y: auto;
+  }
+  .service-modal-content h3 {
+    font-family: var(--serif);
+    font-size: 1.8rem; color: var(--teal-dark);
+    margin-bottom: 16px; line-height: 1.2;
+  }
+  .service-modal-content p {
+    font-size: 0.95rem; color: var(--text-mid);
+    line-height: 1.55; margin-bottom: 16px;
+  }
+  .service-modal-content ul {
+    list-style: disc; padding-left: 20px;
+    margin-bottom: 24px;
+  }
+  .service-modal-content ul li {
+    font-size: 0.92rem; color: var(--text-mid);
+    line-height: 1.7; margin-bottom: 2px;
+  }
+  .service-modal-close {
+    position: absolute; top: 14px; right: 14px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--white); border: 1px solid #e0dbd4;
+    cursor: pointer; font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-dark); z-index: 2;
+  }
+  .service-modal-close:hover { background: var(--cream-dark); }
+  @media (max-width: 700px) {
+    .service-modal { grid-template-columns: 1fr; max-height: 92vh; overflow-y: auto; }
+    .service-modal-img { aspect-ratio: 4/3; }
+  }
+
   /* ── TESTIMONIALS ── */
   .testimonials-section { padding: 80px 32px; background: var(--cream); }
   .testimonials-inner { max-width: 1100px; margin: 0 auto; }
@@ -363,7 +421,7 @@
     <p class="subtitle">One-size-fits-all doesn't work for hormone health. Discover <em>science-backed treatments</em> tailored to your specific concerns.</p>
     <div class="services-grid">
 
-      <div class="service-card">
+      <div class="service-card" data-service="perimenopause">
         <div class="service-card-img">
           <img src="L1.png" alt="Perimenopause" />
           <span class="plus">+</span>
@@ -374,7 +432,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" data-service="weight">
         <div class="service-card-img">
           <img src="L2.png" alt="Weight" />
           <span class="plus">+</span>
@@ -385,7 +443,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" data-service="menopause">
         <div class="service-card-img">
           <img src="L3.png" alt="Menopause Support" />
           <span class="plus">+</span>
@@ -396,7 +454,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" data-service="thyroid">
         <div class="service-card-img">
           <img src="thyroid image 1.png" alt="Thyroid Optimization" />
           <span class="plus">+</span>
@@ -407,9 +465,9 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" data-service="longevity">
         <div class="service-card-img">
-          <img src="L4.png" alt="Weight & Metabolism" />
+          <img src="L4.png" alt="Age Well & Longevity" />
           <span class="plus">+</span>
         </div>
         <div class="service-card-body">
@@ -418,9 +476,9 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" data-service="mood">
         <div class="service-card-img">
-          <img src="L5.png" alt="Fertility Support" />
+          <img src="L5.png" alt="Mood & Memory" />
           <span class="plus">+</span>
         </div>
         <div class="service-card-body">
@@ -429,9 +487,9 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" data-service="hair">
         <div class="service-card-img">
-          <img src="L6.png" alt="Service 6" />
+          <img src="L6.png" alt="Hair & Skin" />
           <span class="plus">+</span>
         </div>
         <div class="service-card-body">
@@ -440,9 +498,9 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" data-service="chronic">
         <div class="service-card-img">
-          <img src="L7.png" alt="Service 7" />
+          <img src="L7.png" alt="Cancer & Chronic Conditions" />
           <span class="plus">+</span>
         </div>
         <div class="service-card-body">
@@ -551,6 +609,110 @@
   </div>
   <div class="footer-bottom">© 2025 Elevia Clinic. All rights reserved. Virtual telehealth clinic for women's health.</div>
 </footer>
+
+<!-- SERVICE MODAL -->
+<div class="service-modal-overlay" id="serviceModal" aria-hidden="true">
+  <div class="service-modal" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
+    <button class="service-modal-close" id="serviceModalClose" aria-label="Close">✕</button>
+    <div class="service-modal-img"><img id="serviceModalImg" src="" alt="" /></div>
+    <div class="service-modal-content">
+      <h3 id="serviceModalTitle"></h3>
+      <p id="serviceModalDesc"></p>
+      <ul id="serviceModalList"></ul>
+      <a href="index.html#booking" class="btn-outline">Book a Visit</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const SERVICE_DATA = {
+    perimenopause: {
+      title: "Perimenopause",
+      img: "L1.png",
+      desc: "In the years before your period stops for good, your hormones can fluctuate dramatically, causing a wide range of confusing symptoms. Elevia Clinic offers evidence-based, personalized treatments for:",
+      bullets: ["Irregular periods", "Hot flashes & night sweats", "Weight gain", "Insomnia & sleep disturbances", "Brain fog", "Mood swings, anxiety & low mood", "Painful sex, vaginal dryness & libido changes"]
+    },
+    weight: {
+      title: "Weight",
+      img: "L2.png",
+      desc: "Stubborn weight gain that won't respond to diet and exercise often signals deeper hormonal or metabolic imbalances. Our team identifies the root causes and creates sustainable plans for:",
+      bullets: ["Hormonal weight gain", "Insulin resistance", "Slow or sluggish metabolism", "Stubborn abdominal fat", "Sugar & carb cravings", "Low energy & fatigue", "Weight loss plateaus"]
+    },
+    menopause: {
+      title: "Menopause Support",
+      img: "L3.png",
+      desc: "Menopause is a significant life transition that affects nearly every system in your body. Our holistic, evidence-based approach — including bioidentical hormone therapy when appropriate — supports you through:",
+      bullets: ["Hot flashes & night sweats", "Sleep disturbances", "Mood changes & irritability", "Vaginal dryness & libido changes", "Bone & joint health", "Heart & metabolic health", "Cognitive changes"]
+    },
+    thyroid: {
+      title: "Thyroid Optimization",
+      img: "thyroid image 1.png",
+      desc: "Your thyroid is the master regulator of metabolism, energy and mood. We go beyond standard lab ranges to assess and optimize the full picture of thyroid function for:",
+      bullets: ["Fatigue & low energy", "Unexplained weight changes", "Cold intolerance", "Brain fog & poor concentration", "Hair thinning & loss", "Anxiety & depression", "Irregular periods", "Dry skin & constipation"]
+    },
+    longevity: {
+      title: "Age Well & Longevity",
+      img: "L4.png",
+      desc: "Optimize your healthspan, not just your lifespan. Our longevity protocols are built around the hormonal, metabolic and lifestyle drivers of healthy aging:",
+      bullets: ["Cellular aging & inflammation", "Declining energy & vitality", "Muscle mass preservation", "Bone density support", "Cognitive resilience", "Cardiovascular health", "Metabolic health", "Recovery & sleep quality"]
+    },
+    mood: {
+      title: "Mood & Memory",
+      img: "L5.png",
+      desc: "Your hormones profoundly influence brain chemistry, mood and cognition. We identify the hormonal and nutritional drivers behind:",
+      bullets: ["Brain fog & mental fatigue", "Memory lapses & forgetfulness", "Anxiety & low mood", "Mood swings & irritability", "Poor focus & concentration", "Sleep-related cognitive issues", "Stress resilience"]
+    },
+    hair: {
+      title: "Hair & Skin",
+      img: "L6.png",
+      desc: "Hormonal imbalances often appear first in your hair and skin. Our integrative protocols address the underlying causes of:",
+      bullets: ["Hair thinning & loss", "Dry, aging or dull skin", "Hormonal acne", "Unwanted facial or body hair", "Brittle nails", "Collagen decline & elasticity", "Eczema & skin inflammation", "Hyperpigmentation"]
+    },
+    chronic: {
+      title: "Cancer & Chronic Conditions",
+      img: "L7.png",
+      desc: "Integrative, evidence-based support to complement your medical care for chronic and complex conditions. We work alongside your specialists to address:",
+      bullets: ["Hormone-related cancer support", "Thyroid disorders", "Autoimmune conditions", "Chronic fatigue", "Fibromyalgia", "PCOS & endometriosis", "Metabolic syndrome", "Long-term inflammation"]
+    }
+  };
+
+  (function() {
+    const modal = document.getElementById('serviceModal');
+    const closeBtn = document.getElementById('serviceModalClose');
+    const titleEl = document.getElementById('serviceModalTitle');
+    const descEl = document.getElementById('serviceModalDesc');
+    const listEl = document.getElementById('serviceModalList');
+    const imgEl = document.getElementById('serviceModalImg');
+
+    function openModal(key) {
+      const data = SERVICE_DATA[key];
+      if (!data) return;
+      titleEl.textContent = data.title;
+      descEl.textContent = data.desc;
+      imgEl.src = data.img;
+      imgEl.alt = data.title;
+      listEl.innerHTML = data.bullets.map(b => `<li>${b}</li>`).join('');
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.service-card[data-service]').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.btn-outline')) return;
+        openModal(card.getAttribute('data-service'));
+      });
+    });
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+  })();
+</script>
 
 </body>
 </html>
