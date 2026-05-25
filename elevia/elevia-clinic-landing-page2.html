@@ -243,8 +243,9 @@
     width: 100%; aspect-ratio: 4/3;
     background: var(--cream-dark); border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 20px; font-size: 40px;
+    margin-bottom: 20px; font-size: 40px; overflow: hidden;
   }
+  .how-card-img img { width: 100%; height: 100%; object-fit: cover; }
   .how-card-num {
     font-size: 11px; font-weight: 700; letter-spacing: .1em;
     color: var(--teal); text-transform: uppercase; margin-bottom: 6px;
@@ -453,25 +454,25 @@
     <div class="how-grid">
 
       <div class="how-card">
-        <div class="how-card-img">🖥️</div>
+        <div class="how-card-img"><img src="how it works 1.png" alt="Step 1" /></div>
         <div class="how-card-num" data-num="1">Step 1</div>
         <h4>Book your virtual visit</h4>
       </div>
 
       <div class="how-card">
-        <div class="how-card-img">💬</div>
+        <div class="how-card-img"><img src="How it works 2.png" alt="Step 2" /></div>
         <div class="how-card-num" data-num="2">Step 2</div>
         <h4>Discuss solutions with Inna ND</h4>
       </div>
 
       <div class="how-card">
-        <div class="how-card-img">📋</div>
+        <div class="how-card-img"><img src="How it works 3.png" alt="Step 3" /></div>
         <div class="how-card-num" data-num="3">Step 3</div>
         <h4>Get your personalized Care Plan</h4>
       </div>
 
       <div class="how-card">
-        <div class="how-card-img">📈</div>
+        <div class="how-card-img"><img src="how it works 4.png" alt="Step 4" /></div>
         <div class="how-card-num" data-num="4">Step 4</div>
         <h4>Make progress with regular check-ins</h4>
       </div>
