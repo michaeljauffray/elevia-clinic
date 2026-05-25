@@ -108,8 +108,8 @@
   .trust-text strong { font-weight: 600; }
 
   /* ── SERVICES ── */
-  .services-section { padding: 80px 32px; background: var(--white); }
-  .services-inner { max-width: 1100px; margin: 0 auto; }
+  .services-section { padding: 80px 0 80px; background: var(--white); }
+  .services-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
   .section-eyebrow {
     font-size: 11px; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
@@ -121,20 +121,26 @@
     color: var(--teal-dark); margin-bottom: 12px;
   }
   .services-section .subtitle {
-    font-size: 15px; color: var(--text-mid); margin-bottom: 48px;
+    font-size: 15px; color: var(--text-mid); margin-bottom: 36px;
     max-width: 600px;
   }
   .services-section .subtitle em { color: var(--teal); font-style: normal; text-decoration: underline; }
+  .services-carousel-wrap { position: relative; }
   .services-grid {
-    display: grid; grid-template-columns: repeat(8, 1fr); gap: 20px;
+    display: flex; gap: 20px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding-bottom: 8px;
   }
   .service-card {
+    flex: 0 0 240px;
     border: 1px solid #e0dbd4; border-radius: 12px; overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--white);
   }
   .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
   .service-card-img {
-    aspect-ratio: 1/1;
+    aspect-ratio: 4/5;
     background: var(--cream-dark);
     display: flex; align-items: center; justify-content: center;
     position: relative; overflow: hidden;
@@ -147,8 +153,20 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 18px; font-weight: 300; box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   }
-  .service-card-body { padding: 14px; }
-  .service-card-body h4 { font-size: 14px; font-weight: 600; color: var(--text-dark); margin-bottom: 10px; }
+  .service-card-body { padding: 16px; }
+  .service-card-body h4 { font-size: 15px; font-weight: 500; color: var(--text-dark); margin-bottom: 12px; }
+  .carousel-controls {
+    display: flex; justify-content: flex-end; gap: 10px;
+    margin-top: 24px;
+  }
+  .carousel-btn {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 1px solid #ccc; background: var(--white);
+    cursor: pointer; font-size: 16px; color: var(--text-dark);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .carousel-btn:hover { background: var(--cream-dark); border-color: var(--teal); color: var(--teal); }
   .btn-outline {
     display: inline-block;
     border: 1.5px solid var(--teal); color: var(--teal);
@@ -359,12 +377,12 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .hero-inner { grid-template-columns: 1fr; }
-    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .service-card { flex: 0 0 200px; }
     .testimonials-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
     .how-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 600px) {
-    .services-grid { grid-template-columns: 1fr; }
+    .service-card { flex: 0 0 180px; }
     .how-grid { grid-template-columns: 1fr; }
     .nav-inner { padding: 12px 20px; }
     .hero { padding: 90px 20px 50px; }
@@ -419,7 +437,8 @@
     <span class="section-eyebrow">Meet Elevia Clinic</span>
     <h2>Expert, Personalized Virtual Care</h2>
     <p class="subtitle">One-size-fits-all doesn't work for hormone health. Discover <em>science-backed treatments</em> tailored to your specific concerns.</p>
-    <div class="services-grid">
+    <div class="services-carousel-wrap">
+    <div class="services-grid" id="servicesGrid">
 
       <div class="service-card" data-service="perimenopause">
         <div class="service-card-img">
@@ -509,6 +528,11 @@
         </div>
       </div>
 
+    </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="servicesPrev" aria-label="Previous">&#8592;</button>
+      <button class="carousel-btn" id="servicesNext" aria-label="Next">&#8594;</button>
     </div>
   </div>
 </section>
@@ -625,6 +649,14 @@
 </div>
 
 <script>
+  // Carousel
+  (function() {
+    const grid = document.getElementById('servicesGrid');
+    const scrollAmt = () => grid.querySelector('.service-card').offsetWidth + 20;
+    document.getElementById('servicesNext').addEventListener('click', () => grid.scrollBy({ left: scrollAmt() * 2, behavior: 'smooth' }));
+    document.getElementById('servicesPrev').addEventListener('click', () => grid.scrollBy({ left: -scrollAmt() * 2, behavior: 'smooth' }));
+  })();
+
   const SERVICE_DATA = {
     perimenopause: {
       title: "Perimenopause",
