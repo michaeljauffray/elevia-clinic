@@ -94,7 +94,15 @@
     flex-wrap: wrap;
   }
   .trust-avatars { display: flex; align-items: center; }
-  .trust-avatars img { height: 64px; width: auto; display: block; }
+  .trust-avatars img {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--white);
+    margin-left: -10px;
+    display: block;
+  }
+  .trust-avatars img:first-child { margin-left: 0; }
   .trust-text {
     color: var(--white); font-size: 14px; font-weight: 400;
   }
@@ -414,7 +422,11 @@
 <div class="trust-bar">
   <div class="trust-bar-inner">
     <div class="trust-avatars">
-      <img src="50k-women-clean.png?v=2" alt="50,000 women" />
+      <img src="trust/avatar-1.png" alt="" />
+      <img src="trust/avatar-2.png" alt="" />
+      <img src="trust/avatar-3.png" alt="" />
+      <img src="trust/avatar-4.png" alt="" />
+      <img src="trust/avatar-5.png" alt="" />
     </div>
     <p class="trust-text"><strong>Join more than 50,000 women</strong> who love and trust Elevia Clinic for their hormone health.</p>
   </div>
