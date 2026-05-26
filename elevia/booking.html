@@ -158,6 +158,23 @@
     font-size: 15px;
   }
 
+  /* ── PRICING DISCLAIMER ── */
+  .pricing-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: rgba(26,92,82,0.06);
+    border: 1px solid rgba(26,92,82,0.15);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-top: 24px;
+    color: var(--text-mid);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .pricing-note svg { color: var(--teal); }
+  .pricing-note strong { color: var(--text-dark); }
+
   /* ── TRUST NOTE ── */
   .trust-note {
     margin-top: 40px;
@@ -241,6 +258,14 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- Pricing disclaimer -->
+    <div class="pricing-note">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:2px;">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <p><strong>Pricing note:</strong> Your initial 10-minute discovery call is completely free. If you choose to proceed to a full initial consultation, a fee of <strong>$187</strong> applies. There is no obligation to continue beyond the free call.</p>
     </div>
 
     <!-- Trust bar -->
