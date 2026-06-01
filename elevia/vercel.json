@@ -1,4 +1,9 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/elevia-clinic-landing-page1", "destination": "/thyroid", "permanent": true },
+    { "source": "/elevia-clinic-landing-page2", "destination": "/hormones", "permanent": true },
+    { "source": "/elevia-clinic-landing-page3", "destination": "/weight", "permanent": true }
+  ]
 }
