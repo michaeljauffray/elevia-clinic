@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const contactSuccess = document.getElementById('contactSuccess');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       contactSuccess && (contactSuccess.style.display = 'none');
       contactForm.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
@@ -250,12 +250,25 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.textContent = 'Sending…';
       btn.disabled = true;
 
-      setTimeout(() => {
-        if (contactSuccess) contactSuccess.style.display = 'block';
-        contactForm.reset();
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
+        });
+        const data = await res.json();
+        if (data.success) {
+          if (contactSuccess) contactSuccess.style.display = 'block';
+          contactForm.reset();
+        } else {
+          alert('Something went wrong. Please email us directly at admin@eleviaclinic.com');
+        }
+      } catch {
+        alert('Something went wrong. Please email us directly at admin@eleviaclinic.com');
+      } finally {
         btn.textContent = 'Send Message';
         btn.disabled = false;
-      }, 1200);
+      }
     });
   }
 
