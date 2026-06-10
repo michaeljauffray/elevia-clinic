@@ -3,10 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elevia Clinic — Free Hormone Consult</title>
-<meta name="description" content="You're not crazy. It's your hormones. Book a free 10-minute consult with Australia's integrative hormone & menopause telehealth clinic.">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<!-- META PIXEL: paste your Facebook/Meta pixel base code here -->
+<title>Elevia Clinic — Thyroid & Hormone Health</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
@@ -24,265 +22,371 @@
     --sans: 'Libre Franklin', system-ui, sans-serif;
   }
   html { scroll-behavior: smooth; }
-  body { font-family: var(--sans); color: var(--text-dark); background: var(--cream); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--sans); color: var(--text-dark); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-  /* ── NAV (logo only — no exits) ── */
+  /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(248,245,240,0.95);
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(26,92,82,0.08);
   }
   .nav-inner {
-    max-width: 1100px; margin: 0 auto;
-    padding: 12px 24px;
-    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1200px; margin: 0 auto;
+    padding: 14px 32px;
+    display: flex; align-items: center; justify-content: center;
   }
-  .nav-inner img { height: 32px; width: auto; }
-  .nav-cta {
-    background: var(--teal); color: var(--white);
-    padding: 9px 20px; border-radius: 6px;
-    font-size: 0.82rem; font-weight: 600;
-    text-decoration: none; transition: background 0.2s;
-  }
-  .nav-cta:hover { background: var(--teal-dark); }
+  .nav-logo img { height: 36px; width: auto; }
 
   /* ── HERO ── */
   .hero {
-    padding: 110px 24px 48px;
+    padding: 100px 32px 60px;
+    background: var(--cream);
+  }
+  .hero-inner {
     max-width: 1100px; margin: 0 auto;
-    display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
   }
+  .hero-text { }
   .hero-eyebrow {
-    display: inline-block;
-    font-size: 0.72rem; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--teal);
-    background: rgba(26,92,82,0.08);
-    border-radius: 100px;
-    padding: 6px 16px;
-    margin-bottom: 18px;
+    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 16px;
+    display: block;
   }
-  .hero h1 {
+  .hero-text h1 {
     font-family: var(--serif);
-    font-size: clamp(2.1rem, 4.8vw, 3.4rem);
+    font-size: clamp(32px, 4vw, 52px);
     line-height: 1.1;
     color: var(--teal-dark);
-    margin-bottom: 18px;
+    margin-bottom: 20px;
   }
-  .hero h1 em { font-style: italic; color: var(--teal); }
-  .hero-sub {
-    font-size: 1.05rem; color: var(--text-mid);
-    line-height: 1.7; max-width: 480px;
-    margin-bottom: 26px; font-weight: 300;
+  .hero-text p {
+    font-size: 16px; color: var(--text-mid); margin-bottom: 32px; line-height: 1.7;
+    max-width: 440px;
   }
   .btn-primary {
     display: inline-block;
     background: var(--teal); color: var(--white);
-    padding: 16px 36px; border-radius: 8px;
-    font-size: 1rem; font-weight: 600;
+    padding: 14px 36px; border-radius: 6px;
+    font-size: 0.95rem; font-weight: 600;
     text-decoration: none; letter-spacing: 0.01em;
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 18px rgba(26,92,82,0.25);
+    transition: background 0.2s, transform 0.2s;
   }
   .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
-  .hero-assurance {
-    display: flex; gap: 18px; flex-wrap: wrap;
-    margin-top: 16px;
-    font-size: 0.82rem; color: var(--text-light);
+  .hero-image { border-radius: 16px; overflow: hidden; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-image-placeholder {
+    width: 100%; aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #c8ddd9, #a8c5bf);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
   }
-  .hero-assurance span { display: flex; align-items: center; gap: 6px; }
-  .hero-assurance svg { color: var(--teal); flex-shrink: 0; }
-  .hero-img { border-radius: 16px; overflow: hidden; }
-  .hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-image-placeholder span { font-size: 48px; opacity: 0.4; }
 
-  /* ── SOCIAL PROOF BAR ── */
-  .trust-bar { background: var(--teal); padding: 22px 24px; }
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--teal);
+    padding: 28px 32px;
+  }
   .trust-bar-inner {
     max-width: 1100px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+    display: flex; align-items: center; justify-content: center; gap: 24px;
+    flex-wrap: wrap;
   }
-  .trust-avatars { display: flex; }
+  .trust-avatars { display: flex; align-items: center; }
   .trust-avatars img {
-    width: 46px; height: 46px; border-radius: 50%;
-    object-fit: cover; margin-left: -10px;
-    border: 2px solid var(--teal); background: var(--teal-light);
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: -10px;
+    display: block;
+    background: #1a5c52;
   }
   .trust-avatars img:first-child { margin-left: 0; }
-  .trust-text { color: var(--white); font-size: 0.92rem; font-weight: 300; }
+  .trust-text {
+    color: var(--white); font-size: 14px; font-weight: 400;
+  }
   .trust-text strong { font-weight: 600; }
 
-  /* ── SYMPTOM CHECKLIST ── */
-  .symptoms { max-width: 760px; margin: 0 auto; padding: 72px 24px 64px; text-align: center; }
+  /* ── SERVICES ── */
+  .services-section { padding: 80px 0 80px; background: var(--white); }
+  .services-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
   .section-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
     display: block;
-    font-size: 0.72rem; font-weight: 600;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--teal); margin-bottom: 12px;
   }
-  .symptoms h2, .how h2, .stories h2, .faq h2 {
+  .services-section h2 {
     font-family: var(--serif);
-    font-size: clamp(1.7rem, 3vw, 2.4rem);
-    color: var(--teal-dark); line-height: 1.2;
-    margin-bottom: 14px;
+    font-size: clamp(26px, 3vw, 40px);
+    color: var(--teal-dark); margin-bottom: 12px;
   }
-  .symptoms > p { color: var(--text-mid); font-weight: 300; margin-bottom: 32px; }
-  .symptom-list {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-    text-align: left; margin-bottom: 32px;
+  .services-section .subtitle {
+    font-size: 15px; color: var(--text-mid); margin-bottom: 36px;
+    max-width: 600px;
   }
-  .symptom-item {
-    display: flex; align-items: center; gap: 12px;
-    background: var(--white);
-    border: 1px solid rgba(26,92,82,0.1);
-    border-radius: 10px;
-    padding: 14px 18px;
-    font-size: 0.95rem; font-weight: 500;
+  .services-section .subtitle em { color: var(--teal); font-style: normal; text-decoration: underline; }
+  .services-carousel-wrap { position: relative; }
+  .services-grid {
+    display: flex; gap: 16px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding-bottom: 4px;
   }
-  .symptom-item svg { color: var(--teal); flex-shrink: 0; }
-  .symptoms-note {
-    font-size: 1rem; color: var(--text-dark); font-weight: 500; margin-bottom: 24px;
+  .service-card {
+    flex: 0 0 260px;
+    border-radius: 14px; overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--cream);
   }
-  .symptoms-note em { color: var(--teal); font-style: normal; border-bottom: 2px solid var(--gold); }
-
-  /* ── EMPATHY BLOCK ── */
-  .empathy { background: var(--teal-dark); color: var(--white); padding: 72px 24px; }
-  .empathy-inner { max-width: 720px; margin: 0 auto; text-align: center; }
-  .empathy h2 {
-    font-family: var(--serif);
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    line-height: 1.25; margin-bottom: 18px;
-  }
-  .empathy p { font-weight: 300; opacity: 0.9; font-size: 1.02rem; line-height: 1.8; margin-bottom: 14px; }
-  .empathy strong { color: var(--gold); font-weight: 600; }
-
-  /* ── HOW IT WORKS ── */
-  .how { max-width: 1000px; margin: 0 auto; padding: 72px 24px; text-align: center; }
-  .how > p { color: var(--text-mid); font-weight: 300; margin-bottom: 40px; }
-  .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 40px; }
-  .how-step {
-    background: var(--white);
-    border-radius: 14px;
-    padding: 30px 24px;
-    text-align: left;
-    border: 1px solid rgba(26,92,82,0.08);
-  }
-  .how-step .num {
-    width: 34px; height: 34px; border-radius: 50%;
-    background: var(--teal); color: var(--white);
+  .service-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.07); }
+  .service-card-img {
+    aspect-ratio: 3/4;
+    background: var(--cream-dark);
     display: flex; align-items: center; justify-content: center;
-    font-weight: 600; font-size: 0.9rem; margin-bottom: 14px;
+    position: relative; overflow: hidden;
   }
-  .how-step h4 { font-size: 1.02rem; font-weight: 600; margin-bottom: 8px; color: var(--text-dark); }
-  .how-step p { font-size: 0.88rem; color: var(--text-mid); font-weight: 300; line-height: 1.6; }
-  .pricing-line {
-    max-width: 620px; margin: 0 auto 28px;
-    background: rgba(26,92,82,0.06);
-    border: 1px solid rgba(26,92,82,0.15);
-    border-radius: 12px;
-    padding: 16px 22px;
-    font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; text-align: left;
+  .service-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .service-card-img .plus {
+    position: absolute; bottom: 12px; right: 12px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--white); color: var(--text-dark);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 300; box-shadow: 0 2px 10px rgba(0,0,0,0.14);
   }
-  .pricing-line strong { color: var(--text-dark); }
+  .service-card-body { padding: 18px 16px 20px; }
+  .service-card-body h4 { font-size: 17px; font-weight: 500; color: var(--text-dark); margin-bottom: 14px; line-height: 1.3; }
+  .carousel-controls {
+    display: flex; justify-content: flex-end; gap: 10px;
+    margin-top: 28px;
+  }
+  .carousel-btn {
+    width: 42px; height: 42px; border-radius: 50%;
+    border: 1px solid #ccc; background: var(--white);
+    cursor: pointer; font-size: 16px; color: var(--text-dark);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .carousel-btn:hover { background: var(--cream-dark); border-color: var(--teal); color: var(--teal); }
+  .btn-outline {
+    display: inline-block;
+    border: 1.5px solid rgba(26,92,82,0.4); color: var(--text-dark);
+    padding: 10px 20px; border-radius: 50px;
+    font-size: 13px; font-weight: 500;
+    text-decoration: none; transition: all 0.2s;
+    width: 100%; text-align: center; box-sizing: border-box;
+  }
+  .btn-outline:hover { border-color: var(--teal); background: var(--teal); color: var(--white); }
 
-  /* ── DOCTOR ── */
-  .doctor { background: var(--cream-dark); padding: 72px 24px; }
-  .doctor-inner {
-    max-width: 900px; margin: 0 auto;
-    display: grid; grid-template-columns: 260px 1fr; gap: 44px; align-items: center;
+  /* ── SERVICE MODAL ── */
+  .service-card { cursor: pointer; }
+  .service-modal-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(30,42,39,0.55);
+    display: none; align-items: center; justify-content: center;
+    padding: 24px;
   }
-  .doctor-photo { border-radius: 18px; overflow: hidden; aspect-ratio: 2/3; }
-  .doctor-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .doctor-content h2 {
-    font-family: var(--serif);
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    color: var(--teal-dark); line-height: 1.25; margin-bottom: 14px;
+  .service-modal-overlay.open { display: flex; }
+  .service-modal {
+    background: var(--cream);
+    border-radius: 14px;
+    width: 100%; max-width: 880px;
+    max-height: 90vh; overflow: hidden;
+    display: grid; grid-template-columns: 1fr 1fr;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.25);
   }
-  .doctor-content > p { color: var(--text-mid); font-weight: 300; line-height: 1.75; margin-bottom: 16px; }
-  .credentials { font-size: 0.8rem; color: var(--text-light); margin-bottom: 24px; }
-
-  /* ── TESTIMONIALS ── */
-  .stories { padding: 72px 24px; max-width: 1100px; margin: 0 auto; text-align: center; }
-  .stories > .sub { color: var(--text-mid); font-weight: 300; margin-bottom: 40px; }
-  .stories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .story-card { background: var(--white); border-radius: 14px; overflow: hidden; box-shadow: 0 2px 14px rgba(0,0,0,0.06); }
-  .story-video { position: relative; aspect-ratio: 2/3; background: #1a1a1a; }
-  .story-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-
-  /* ── FAQ ── */
-  .faq { max-width: 720px; margin: 0 auto; padding: 72px 24px; }
-  .faq h2 { text-align: center; margin-bottom: 36px; }
-  .faq-item {
-    background: var(--white);
-    border: 1px solid rgba(26,92,82,0.1);
-    border-radius: 12px;
-    margin-bottom: 12px;
+  .service-modal-img {
+    background: var(--cream-dark);
     overflow: hidden;
   }
-  .faq-item summary {
-    cursor: pointer; list-style: none;
-    padding: 18px 22px;
-    font-weight: 600; font-size: 0.98rem;
-    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  .service-modal-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .service-modal-content {
+    padding: 36px 32px 32px;
+    overflow-y: auto;
   }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after { content: '+'; font-size: 1.3rem; color: var(--teal); font-weight: 300; }
-  .faq-item[open] summary::after { content: '–'; }
-  .faq-item .faq-body { padding: 0 22px 18px; font-size: 0.92rem; color: var(--text-mid); font-weight: 300; line-height: 1.7; }
-
-  /* ── FINAL CTA ── */
-  .final-cta { background: var(--teal); color: var(--white); padding: 72px 24px; text-align: center; }
-  .final-cta h2 {
+  .service-modal-content h3 {
     font-family: var(--serif);
-    font-size: clamp(1.7rem, 3vw, 2.4rem);
-    line-height: 1.2; margin-bottom: 14px;
+    font-size: 1.8rem; color: var(--teal-dark);
+    margin-bottom: 16px; line-height: 1.2;
   }
-  .final-cta p { font-weight: 300; opacity: 0.9; margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto; }
-  .btn-light {
+  .service-modal-content p {
+    font-size: 0.95rem; color: var(--text-mid);
+    line-height: 1.55; margin-bottom: 16px;
+  }
+  .service-modal-content ul {
+    list-style: disc; padding-left: 20px;
+    margin-bottom: 24px;
+  }
+  .service-modal-content ul li {
+    font-size: 0.92rem; color: var(--text-mid);
+    line-height: 1.7; margin-bottom: 2px;
+  }
+  .service-modal-close {
+    position: absolute; top: 14px; right: 14px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--white); border: 1px solid #e0dbd4;
+    cursor: pointer; font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-dark); z-index: 2;
+  }
+  .service-modal-close:hover { background: var(--cream-dark); }
+  @media (max-width: 700px) {
+    .service-modal { grid-template-columns: 1fr; max-height: 92vh; overflow-y: auto; }
+    .service-modal-img { aspect-ratio: 4/3; }
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-section { padding: 80px 32px; background: var(--cream); }
+  .testimonials-inner { max-width: 1100px; margin: 0 auto; }
+  .testimonials-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 40px; flex-wrap: wrap; gap: 16px;
+  }
+  .testimonials-header h2 {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3vw, 40px);
+    color: var(--teal-dark);
+    max-width: 300px; line-height: 1.15;
+  }
+  .btn-secondary {
     display: inline-block;
-    background: var(--white); color: var(--teal);
-    padding: 16px 40px; border-radius: 8px;
-    font-size: 1rem; font-weight: 700;
-    text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+    border: 1.5px solid var(--teal); color: var(--teal);
+    padding: 10px 24px; border-radius: 6px;
+    font-size: 13px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s; white-space: nowrap;
   }
-  .btn-light:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,0,0,0.2); }
-  .final-note { font-size: 0.8rem; opacity: 0.75; margin-top: 16px; }
-
-  /* ── FOOTER (minimal, no exits) ── */
-  footer { background: var(--white); border-top: 3px solid var(--teal); padding: 28px 24px; text-align: center; }
-  footer img { height: 28px; margin-bottom: 10px; }
-  footer p { font-size: 0.78rem; color: var(--text-light); }
-  footer a { color: var(--text-mid); text-decoration: none; }
-
-  /* ── STICKY MOBILE CTA ── */
-  .sticky-cta {
-    display: none;
-    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+  .btn-secondary:hover { background: var(--teal); color: var(--white); }
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .testimonial-card {
     background: var(--white);
-    border-top: 1px solid rgba(26,92,82,0.15);
-    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
-  .sticky-cta a {
-    display: block; text-align: center;
-    background: var(--teal); color: var(--white);
-    padding: 14px; border-radius: 8px;
-    font-weight: 700; font-size: 0.95rem; text-decoration: none;
+  .testimonial-video {
+    position: relative;
+    aspect-ratio: 2/3;
+    background: #1a1a1a;
+    overflow: hidden;
+  }
+  .testimonial-video iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+  .testimonial-quote {
+    padding: 20px;
+  }
+  .testimonial-quote .quote-mark {
+    font-family: var(--serif); font-size: 48px; color: var(--teal);
+    line-height: 1; margin-bottom: 8px; display: block;
+  }
+  .testimonial-quote p {
+    font-size: 13px; color: var(--text-mid); line-height: 1.6;
+    font-style: italic; margin-bottom: 10px;
+  }
+  .testimonial-quote .author {
+    font-size: 12px; font-weight: 600; color: var(--teal);
+    font-style: normal;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how-section { padding: 80px 32px; background: var(--white); }
+  .how-inner { max-width: 1100px; margin: 0 auto; }
+  .how-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    margin-bottom: 48px; flex-wrap: wrap; gap: 20px;
+  }
+  .how-header-text h2 {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3vw, 40px);
+    color: var(--teal-dark); margin-bottom: 10px;
+  }
+  .how-header-text p {
+    font-size: 14px; color: var(--text-mid); max-width: 420px; line-height: 1.6;
+  }
+  .how-header-text p em { color: var(--teal); font-style: normal; text-decoration: underline; }
+  .how-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+  .how-card {
+    background: var(--white);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .how-card-img {
+    width: 100%; aspect-ratio: 1/1;
+    background: var(--cream-dark);
+    display: block; overflow: hidden;
+  }
+  .how-card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .how-card-body {
+    padding: 20px 18px 22px;
+    border: 1px solid rgba(26,92,82,0.18);
+    border-top: 0;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    flex: 1;
+  }
+  .how-card-num {
+    font-size: 11px; font-weight: 600;
+    color: var(--text-mid); margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .how-card-num::before {
+    content: attr(data-num);
+    width: 22px; height: 22px; border-radius: 50%;
+    background: transparent; color: var(--text-dark);
+    border: 1px solid rgba(26,92,82,0.35);
+    font-size: 11px; display: flex; align-items: center; justify-content: center;
+    font-weight: 500; flex-shrink: 0;
+  }
+  .how-card h4 { font-size: 15px; font-weight: 400; color: var(--text-dark); line-height: 1.45; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 3px solid var(--teal);
+    background: var(--white);
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 40px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+  footer img { height: 32px; }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-links a {
+    color: var(--text-mid); text-decoration: none;
+    font-size: 13px; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--teal); }
+  .footer-bottom {
+    text-align: center; padding: 16px 32px;
+    background: var(--cream); font-size: 12px; color: var(--text-light);
   }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 860px) {
-    .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 96px; }
-    .how-steps { grid-template-columns: 1fr; }
-    .doctor-inner { grid-template-columns: 1fr; text-align: center; }
-    .doctor-photo { max-width: 260px; margin: 0 auto; }
-    .stories-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .service-card { flex: 0 0 200px; }
+    .testimonials-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+    .how-grid { grid-template-columns: repeat(2, 1fr); }
   }
-  @media (max-width: 640px) {
-    .symptom-list { grid-template-columns: 1fr; }
-    .sticky-cta { display: block; }
-    body { padding-bottom: 76px; }
-    .nav-cta { display: none; }
+  @media (max-width: 600px) {
+    .service-card { flex: 0 0 180px; }
+    .how-grid { grid-template-columns: 1fr; }
+    .nav-inner { padding: 12px 20px; }
+    .hero { padding: 90px 20px 50px; }
   }
 </style>
 </head>
@@ -291,30 +395,29 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <img src="logo-teal.SVG.svg" alt="Elevia Clinic" />
-    <a href="/booking" class="nav-cta">Book Free Consult</a>
+    <a class="nav-logo" href="index.html">
+      <img src="logo-teal.SVG.svg" alt="Elevia Clinic" />
+    </a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div>
-    <span class="hero-eyebrow">Free 10-Minute Hormone Consult · Telehealth Australia-Wide</span>
-    <h1>You're not crazy. <em>It's your hormones.</em></h1>
-    <p class="hero-sub">The mood swings, the exhaustion, the weight that won't shift, the brain fog — they're not in your head. Australia's integrative hormone clinic helps you find the real cause and finally feel like yourself again.</p>
-    <a href="/booking" class="btn-primary">Book My Free 10-Minute Consult →</a>
-    <div class="hero-assurance">
-      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 100% free, no obligation</span>
-      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Takes 10 minutes</span>
-      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Phone or video</span>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>You're not crazy. It's your hormones.</h1>
+      <p>Australia's leading integrative menopause and hormone clinic, combining evidence-based conventional medicine with holistic natural approaches.</p>
+      <a href="/booking" class="btn-primary">Book A Free Visit</a>
     </div>
-  </div>
-  <div class="hero-img">
-    <img src="https://cdn.prod.website-files.com/6764f01ec2340008975b3800/6764f01ec2340008975b380f_home-hero-image.jpg" alt="Elevia Clinic" />
+    <div class="hero-image">
+      <div class="hero-image-placeholder">
+        <img src="laptop placeholder hero section (1).png" alt="Elevia Clinic virtual consultation" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- SOCIAL PROOF -->
+<!-- TRUST BAR -->
 <div class="trust-bar">
   <div class="trust-bar-inner">
     <div class="trust-avatars">
@@ -324,147 +427,320 @@
       <img src="trust/avatar-4.png?v=3" alt="" />
       <img src="trust/avatar-5.png?v=3" alt="" />
     </div>
-    <p class="trust-text"><strong>Trusted by thousands of Australian women</strong> for their hormone health.</p>
+    <p class="trust-text"><strong>Join more than 50,000 women</strong> who love and trust Elevia Clinic for their hormone health.</p>
   </div>
 </div>
 
-<!-- SYMPTOM CHECKLIST -->
-<section class="symptoms">
-  <span class="section-eyebrow">Does this sound like you?</span>
-  <h2>When your hormones shift, everything shifts</h2>
-  <p>If you tick two or more of these, your hormones could be the missing piece.</p>
-  <div class="symptom-list">
-    <div class="symptom-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Mood swings, anxiety or low mood</div>
-    <div class="symptom-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Hot flashes &amp; night sweats</div>
-    <div class="symptom-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Weight gain that won't budge</div>
-    <div class="symptom-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Poor sleep &amp; exhaustion</div>
-    <div class="symptom-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Brain fog &amp; forgetfulness</div>
-    <div class="symptom-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Irregular periods &amp; low libido</div>
-  </div>
-  <p class="symptoms-note">Sound familiar? <em>It's not just age. It's not just stress.</em></p>
-  <a href="/booking" class="btn-primary">Find Out What's Really Going On →</a>
-</section>
+<!-- SERVICES -->
+<section class="services-section">
+  <div class="services-inner">
+    <span class="section-eyebrow">Meet Elevia Clinic</span>
+    <h2>Expert, Personalized Virtual Care</h2>
+    <p class="subtitle">One-size-fits-all doesn't work for hormone health. Discover <em>science-backed treatments</em> tailored to your specific concerns.</p>
+    <div class="services-carousel-wrap">
+    <div class="services-grid" id="servicesGrid">
 
-<!-- EMPATHY -->
-<section class="empathy">
-  <div class="empathy-inner">
-    <h2>"It's just part of getting older."</h2>
-    <p>You've probably heard that — from friends, family, maybe even your doctor. But struggling through perimenopause, menopause or hormonal imbalance is <strong>not something you simply have to put up with</strong>.</p>
-    <p>At Elevia Clinic we combine <strong>evidence-based conventional medicine with holistic natural approaches</strong> — including bioidentical hormone therapy when appropriate — to treat the cause, not just mask the symptoms.</p>
-  </div>
-</section>
+      <div class="service-card" data-service="perimenopause">
+        <div class="service-card-img">
+          <img src="L1.png" alt="Perimenopause" />
+          <span class="plus">+</span>
+        </div>
+        <div class="service-card-body">
+          <h4>Perimenopause</h4>
+          <a href="/booking" class="btn-outline">Book a Visit</a>
+        </div>
+      </div>
 
-<!-- HOW IT WORKS -->
-<section class="how">
-  <span class="section-eyebrow">Simple &amp; fast</span>
-  <h2>How it works</h2>
-  <p>From booking to feeling better — all from your couch.</p>
-  <div class="how-steps">
-    <div class="how-step">
-      <div class="num">1</div>
-      <h4>Book your free 10-minute consult</h4>
-      <p>Pick a time that suits you. Phone or video — whatever's easiest.</p>
-    </div>
-    <div class="how-step">
-      <div class="num">2</div>
-      <h4>Talk to a real clinician</h4>
-      <p>Tell us your symptoms and history. We'll tell you honestly whether we can help.</p>
-    </div>
-    <div class="how-step">
-      <div class="num">3</div>
-      <h4>Get your personalised plan</h4>
-      <p>If we're a fit, we build your testing and treatment plan — with regular check-ins and support.</p>
-    </div>
-  </div>
-  <div class="pricing-line">
-    <strong>Transparent pricing:</strong> your 10-minute discovery call is completely free. If you choose to proceed, a full initial consultation is <strong>$187</strong>. No pressure, no obligation — ever.
-  </div>
-  <a href="/booking" class="btn-primary">Book My Free Consult →</a>
-</section>
+      <div class="service-card" data-service="weight">
+        <div class="service-card-img">
+          <img src="L2.png" alt="Weight" />
+          <span class="plus">+</span>
+        </div>
+        <div class="service-card-body">
+          <h4>Weight</h4>
+          <a href="/booking" class="btn-outline">Book a Visit</a>
+        </div>
+      </div>
 
-<!-- DOCTOR -->
-<section class="doctor">
-  <div class="doctor-inner">
-    <div class="doctor-photo">
-      <img src="inna headshot compressed 2.png" alt="Elevia Clinic clinician" />
+      <div class="service-card" data-service="menopause">
+        <div class="service-card-img">
+          <img src="L3.png" alt="Menopause Support" />
+          <span class="plus">+</span>
+        </div>
+        <div class="service-card-body">
+          <h4>Menopause Support</h4>
+          <a href="/booking" class="btn-outline">Book a Visit</a>
+        </div>
+      </div>
+
+      <div class="service-card" data-service="thyroid">
+        <div class="service-card-img">
+          <img src="thyroid image 1.png" alt="Thyroid Optimization" />
+          <span class="plus">+</span>
+        </div>
+        <div class="service-card-body">
+          <h4>Thyroid Optimization</h4>
+          <a href="/booking" class="btn-outline">Book a Visit</a>
+        </div>
+      </div>
+
+      <div class="service-card" data-service="longevity">
+        <div class="service-card-img">
+          <img src="L4.png" alt="Age Well & Longevity" />
+          <span class="plus">+</span>
+        </div>
+        <div class="service-card-body">
+          <h4>Age Well & Longevity</h4>
+          <a href="/booking" class="btn-outline">Book a Visit</a>
+        </div>
+      </div>
+
+      <div class="service-card" data-service="mood">
+        <div class="service-card-img">
+          <img src="L5.png" alt="Mood & Memory" />
+          <span class="plus">+</span>
+        </div>
+        <div class="service-card-body">
+          <h4>Mood & Memory</h4>
+          <a href="/booking" class="btn-outline">Book a Visit</a>
+        </div>
+      </div>
+
+      <div class="service-card" data-service="hair">
+        <div class="service-card-img">
+          <img src="L6.png" alt="Hair & Skin" />
+          <span class="plus">+</span>
+        </div>
+        <div class="service-card-body">
+          <h4>Hair & Skin</h4>
+          <a href="/booking" class="btn-outline">Book a Visit</a>
+        </div>
+      </div>
+
+      <div class="service-card" data-service="chronic">
+        <div class="service-card-img">
+          <img src="L7.png" alt="Cancer & Chronic Conditions" />
+          <span class="plus">+</span>
+        </div>
+        <div class="service-card-body">
+          <h4>Cancer & Chronic Conditions</h4>
+          <a href="/booking" class="btn-outline">Book a Visit</a>
+        </div>
+      </div>
+
     </div>
-    <div class="doctor-content">
-      <span class="section-eyebrow">Who you'll talk to</span>
-      <h2>Experienced clinicians who actually listen</h2>
-      <p>Our clinical team has decades of combined experience in women's hormone health. We've helped thousands of Australian women get answers after years of being dismissed or told everything was "normal".</p>
-      <p class="credentials">BHSc (ND) · Dip (Pharm) · Adv Dip (Nat) · ATMS Hormone Specialist · Clinical Team incl. Naturopathic Doctors</p>
-      <a href="/booking" class="btn-primary">Book A Free Consult</a>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="servicesPrev" aria-label="Previous">&#8592;</button>
+      <button class="carousel-btn" id="servicesNext" aria-label="Next">&#8594;</button>
     </div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="stories">
-  <span class="section-eyebrow">Patient stories</span>
-  <h2>Real women, real results</h2>
-  <p class="sub">Don't just take our word for it — hear it from them.</p>
-  <div class="stories-grid">
-    <div class="story-card">
-      <div class="story-video">
-        <iframe src="https://player.vimeo.com/video/1181093914?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Amber"></iframe>
+<section class="testimonials-section">
+  <div class="testimonials-inner">
+    <div class="testimonials-header">
+      <div>
+        <span class="section-eyebrow">Don't just take our word for it</span>
+        <h2>True Stories Of Transformation</h2>
       </div>
+      <a href="/booking" class="btn-secondary">Book A Free Visit</a>
     </div>
-    <div class="story-card">
-      <div class="story-video">
-        <iframe src="https://player.vimeo.com/video/1181094394?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Alison"></iframe>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-video">
+          <iframe src="https://player.vimeo.com/video/1181093914?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Amber"></iframe>
+        </div>
       </div>
-    </div>
-    <div class="story-card">
-      <div class="story-video">
-        <iframe src="https://player.vimeo.com/video/1181094236?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Jenny"></iframe>
+
+      <div class="testimonial-card">
+        <div class="testimonial-video">
+          <iframe src="https://player.vimeo.com/video/1181094394?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Alison"></iframe>
+        </div>
       </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-video">
+          <iframe src="https://player.vimeo.com/video/1181094236?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Jenny"></iframe>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="faq">
-  <h2>Questions, answered</h2>
-  <details class="faq-item">
-    <summary>Is the consult really free?</summary>
-    <div class="faq-body">Yes — completely. The 10-minute discovery call costs nothing and there's no obligation to continue. It exists so we can both work out whether Elevia is the right fit for you. If you choose to proceed, a full initial consultation is $187.</div>
-  </details>
-  <details class="faq-item">
-    <summary>My blood tests came back "normal". Can you still help?</summary>
-    <div class="faq-body">This is the most common situation we see. Standard testing often misses subtle hormonal imbalances — especially during perimenopause, when hormones fluctuate day to day. We assess the full picture, not just a single snapshot.</div>
-  </details>
-  <details class="faq-item">
-    <summary>Do I need to visit a clinic in person?</summary>
-    <div class="faq-body">No. Elevia Clinic is 100% telehealth and serves women Australia-wide. Consults happen by phone or video, and any testing is arranged near you.</div>
-  </details>
-  <details class="faq-item">
-    <summary>Do you prescribe hormone therapy?</summary>
-    <div class="faq-body">Where appropriate, yes — including bioidentical hormone therapy. We combine evidence-based conventional medicine with natural, holistic approaches, and every plan is personalised to you.</div>
-  </details>
-  <details class="faq-item">
-    <summary>What happens after the free call?</summary>
-    <div class="faq-body">If we believe we can help, you can book a full initial consultation ($187) where we take a comprehensive history and design your personalised testing and treatment plan. If we're not the right fit, we'll tell you honestly.</div>
-  </details>
-</section>
+<!-- HOW IT WORKS -->
+<section class="how-section" id="booking">
+  <div class="how-inner">
+    <div class="how-header">
+      <div class="how-header-text">
+        <h2>How Elevia Clinic Works</h2>
+        <p>You're in good hands at Elevia Clinic. Our protocols are defined by <em>practitioners with decades of experience</em> in women's hormone health.</p>
+      </div>
+      <a href="/booking" class="btn-primary">Book A Free Visit</a>
+    </div>
+    <div class="how-grid">
 
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <h2>You deserve to feel like yourself again.</h2>
-  <p>Book your free 10-minute consult today — and get real answers, not another brush-off.</p>
-  <a href="/booking" class="btn-light">Book My Free Consult →</a>
-  <p class="final-note">Free · 10 minutes · Phone or video · No obligation</p>
+      <div class="how-card">
+        <div class="how-card-img"><img src="how it works 1.png" alt="Step 1" /></div>
+        <div class="how-card-body">
+          <div class="how-card-num" data-num="1"></div>
+          <h4>Book your virtual visit</h4>
+        </div>
+      </div>
+
+      <div class="how-card">
+        <div class="how-card-img"><img src="How it works 2.png" alt="Step 2" /></div>
+        <div class="how-card-body">
+          <div class="how-card-num" data-num="2"></div>
+          <h4>Discuss solutions with an Elevia clinician</h4>
+        </div>
+      </div>
+
+      <div class="how-card">
+        <div class="how-card-img"><img src="How it works 3.png" alt="Step 3" /></div>
+        <div class="how-card-body">
+          <div class="how-card-num" data-num="3"></div>
+          <h4>Get your personalized Care Plan</h4>
+        </div>
+      </div>
+
+      <div class="how-card">
+        <div class="how-card-img"><img src="how it works 4.png" alt="Step 4" /></div>
+        <div class="how-card-body">
+          <div class="how-card-num" data-num="4"></div>
+          <h4>Make progress with regular check-ins and 24/7 support</h4>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <img src="logo-teal.SVG.svg" alt="Elevia Clinic" />
-  <p>© 2025 Elevia Clinic · Virtual telehealth clinic for women's health · <a href="mailto:admin@eleviaclinic.com">admin@eleviaclinic.com</a></p>
+  <div class="footer-inner">
+    <img src="logo-teal.SVG.svg" alt="Elevia Clinic" />
+    <div class="footer-links">
+      <a href="mailto:admin@eleviaclinic.com">admin@eleviaclinic.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 Elevia Clinic. All rights reserved. Virtual telehealth clinic for women's health.</div>
 </footer>
 
-<!-- STICKY MOBILE CTA -->
-<div class="sticky-cta">
-  <a href="/booking">Book My Free 10-Min Consult →</a>
+<!-- SERVICE MODAL -->
+<div class="service-modal-overlay" id="serviceModal" aria-hidden="true">
+  <div class="service-modal" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
+    <button class="service-modal-close" id="serviceModalClose" aria-label="Close">✕</button>
+    <div class="service-modal-img"><img id="serviceModalImg" src="" alt="" /></div>
+    <div class="service-modal-content">
+      <h3 id="serviceModalTitle"></h3>
+      <p id="serviceModalDesc"></p>
+      <ul id="serviceModalList"></ul>
+      <a href="/booking" class="btn-outline">Book A Free Visit</a>
+    </div>
+  </div>
 </div>
+
+<script>
+  // Carousel
+  (function() {
+    const grid = document.getElementById('servicesGrid');
+    const scrollAmt = () => grid.querySelector('.service-card').offsetWidth + 20;
+    document.getElementById('servicesNext').addEventListener('click', () => grid.scrollBy({ left: scrollAmt() * 2, behavior: 'smooth' }));
+    document.getElementById('servicesPrev').addEventListener('click', () => grid.scrollBy({ left: -scrollAmt() * 2, behavior: 'smooth' }));
+  })();
+
+  const SERVICE_DATA = {
+    perimenopause: {
+      title: "Perimenopause",
+      img: "L1.png",
+      desc: "In the years before your period stops for good, your hormones can fluctuate dramatically, causing a wide range of confusing symptoms. Elevia Clinic offers evidence-based, personalized treatments for:",
+      bullets: ["Irregular periods", "Hot flashes & night sweats", "Weight gain", "Insomnia & sleep disturbances", "Brain fog", "Mood swings, anxiety & low mood", "Painful sex, vaginal dryness & libido changes"]
+    },
+    weight: {
+      title: "Weight",
+      img: "L2.png",
+      desc: "Stubborn weight gain that won't respond to diet and exercise often signals deeper hormonal or metabolic imbalances. Our team identifies the root causes and creates sustainable plans for:",
+      bullets: ["Hormonal weight gain", "Insulin resistance", "Slow or sluggish metabolism", "Stubborn abdominal fat", "Sugar & carb cravings", "Low energy & fatigue", "Weight loss plateaus"]
+    },
+    menopause: {
+      title: "Menopause Support",
+      img: "L3.png",
+      desc: "Menopause is a significant life transition that affects nearly every system in your body. Our holistic, evidence-based approach — including bioidentical hormone therapy when appropriate — supports you through:",
+      bullets: ["Hot flashes & night sweats", "Sleep disturbances", "Mood changes & irritability", "Vaginal dryness & libido changes", "Bone & joint health", "Heart & metabolic health", "Cognitive changes"]
+    },
+    thyroid: {
+      title: "Thyroid Optimization",
+      img: "thyroid image 1.png",
+      desc: "Your thyroid is the master regulator of metabolism, energy and mood. We go beyond standard lab ranges to assess and optimize the full picture of thyroid function for:",
+      bullets: ["Fatigue & low energy", "Unexplained weight changes", "Cold intolerance", "Brain fog & poor concentration", "Hair thinning & loss", "Anxiety & depression", "Irregular periods", "Dry skin & constipation"]
+    },
+    longevity: {
+      title: "Age Well & Longevity",
+      img: "L4.png",
+      desc: "Optimize your healthspan, not just your lifespan. Our longevity protocols are built around the hormonal, metabolic and lifestyle drivers of healthy aging:",
+      bullets: ["Cellular aging & inflammation", "Declining energy & vitality", "Muscle mass preservation", "Bone density support", "Cognitive resilience", "Cardiovascular health", "Metabolic health", "Recovery & sleep quality"]
+    },
+    mood: {
+      title: "Mood & Memory",
+      img: "L5.png",
+      desc: "Your hormones profoundly influence brain chemistry, mood and cognition. We identify the hormonal and nutritional drivers behind:",
+      bullets: ["Brain fog & mental fatigue", "Memory lapses & forgetfulness", "Anxiety & low mood", "Mood swings & irritability", "Poor focus & concentration", "Sleep-related cognitive issues", "Stress resilience"]
+    },
+    hair: {
+      title: "Hair & Skin",
+      img: "L6.png",
+      desc: "Hormonal imbalances often appear first in your hair and skin. Our integrative protocols address the underlying causes of:",
+      bullets: ["Hair thinning & loss", "Dry, aging or dull skin", "Hormonal acne", "Unwanted facial or body hair", "Brittle nails", "Collagen decline & elasticity", "Eczema & skin inflammation", "Hyperpigmentation"]
+    },
+    chronic: {
+      title: "Cancer & Chronic Conditions",
+      img: "L7.png",
+      desc: "Integrative, evidence-based support to complement your medical care for chronic and complex conditions. We work alongside your specialists to address:",
+      bullets: ["Hormone-related cancer support", "Thyroid disorders", "Autoimmune conditions", "Chronic fatigue", "Fibromyalgia", "PCOS & endometriosis", "Metabolic syndrome", "Long-term inflammation"]
+    }
+  };
+
+  (function() {
+    const modal = document.getElementById('serviceModal');
+    const closeBtn = document.getElementById('serviceModalClose');
+    const titleEl = document.getElementById('serviceModalTitle');
+    const descEl = document.getElementById('serviceModalDesc');
+    const listEl = document.getElementById('serviceModalList');
+    const imgEl = document.getElementById('serviceModalImg');
+
+    function openModal(key) {
+      const data = SERVICE_DATA[key];
+      if (!data) return;
+      titleEl.textContent = data.title;
+      descEl.textContent = data.desc;
+      imgEl.src = data.img;
+      imgEl.alt = data.title;
+      listEl.innerHTML = data.bullets.map(b => `<li>${b}</li>`).join('');
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.service-card[data-service]').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.btn-outline')) return;
+        openModal(card.getAttribute('data-service'));
+      });
+    });
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+  })();
+</script>
 
 </body>
 </html>
