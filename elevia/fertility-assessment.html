@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Fertility Gap Assessment — Elevia Fertility</title>
+  <meta name="description" content="Ten questions, three minutes. Find the gaps in your current approach to conceiving — testing, timing, foundations and plan — and get your personal fertility readiness score." />
+  <!-- Draft preview: remove noindex when live on eleviafertility.com -->
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream: #FBF3E8;
+      --peach: #F5E3D0;
+      --blush: #EFD3BC;
+      --rust: #C75B33;
+      --rust-dark: #A8461F;
+      --cocoa: #33231B;
+      --cocoa-soft: #6E5A4E;
+      --white: #FFFDFA;
+      --serif: 'Fraunces', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --radius: 26px;
+    }
+
+    body {
+      font-family: var(--sans);
+      font-weight: 300;
+      color: var(--cocoa);
+      background: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; }
+    h1 em, h2 em { font-style: italic; font-weight: 300; color: var(--rust); }
+
+    .nav {
+      background: var(--cream);
+      border-bottom: 1px solid rgba(51, 35, 27, 0.08);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 18px 28px;
+      display: flex; justify-content: center;
+    }
+    .wordmark {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      color: var(--cocoa);
+      text-decoration: none;
+      line-height: 1;
+    }
+    .wordmark em { font-style: italic; color: var(--rust); }
+
+    main { flex: 1; }
+    .shell {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--rust); color: var(--white);
+      font-family: var(--sans); font-size: 1rem; font-weight: 500;
+      padding: 17px 40px; border-radius: 100px;
+      text-decoration: none;
+      border: 0; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn:hover { background: var(--rust-dark); transform: translateY(-1px); }
+    .btn-quiet {
+      background: none; border: 0; cursor: pointer;
+      font-family: var(--sans); font-size: 0.9rem;
+      color: var(--cocoa-soft);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      padding: 8px;
+    }
+    .btn-quiet:hover { color: var(--rust); }
+
+    /* ── INTRO ── */
+    .intro { text-align: center; padding-top: 24px; }
+    .intro-tag {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--rust);
+      background: rgba(199, 91, 51, 0.1);
+      padding: 7px 16px; border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .intro h1 {
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      line-height: 1.08;
+      margin-bottom: 20px;
+    }
+    .intro-sub {
+      font-size: 1.1rem;
+      color: var(--cocoa-soft);
+      max-width: 520px;
+      margin: 0 auto 36px;
+    }
+    .intro-points {
+      display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
+      margin-bottom: 40px;
+      font-size: 0.9rem; color: var(--cocoa-soft);
+    }
+    .intro-points span::before { content: '✓  '; color: var(--rust); font-weight: 500; }
+    .intro-note { font-size: 0.85rem; color: var(--cocoa-soft); margin-top: 18px; }
+
+    /* ── QUIZ ── */
+    .quiz { display: none; }
+    .progress {
+      height: 6px;
+      background: rgba(51, 35, 27, 0.1);
+      border-radius: 100px;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--rust);
+      border-radius: 100px;
+      width: 0%;
+      transition: width 0.35s ease;
+    }
+    .progress-label {
+      font-size: 0.82rem;
+      color: var(--cocoa-soft);
+      margin-bottom: 34px;
+    }
+    .q-title {
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .q-help { font-size: 0.95rem; color: var(--cocoa-soft); margin-bottom: 28px; }
+    .q-options { display: grid; gap: 12px; }
+    .q-option {
+      text-align: left;
+      font-family: var(--sans);
+      font-size: 1.02rem;
+      font-weight: 400;
+      color: var(--cocoa);
+      background: var(--white);
+      border: 1.5px solid rgba(51, 35, 27, 0.12);
+      border-radius: 18px;
+      padding: 18px 22px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, transform 0.15s;
+    }
+    .q-option:hover {
+      border-color: var(--rust);
+      background: #FDF8F1;
+      transform: translateY(-1px);
+    }
+    .q-back { margin-top: 26px; }
+
+    /* ── CAPTURE ── */
+    .capture { display: none; text-align: center; padding-top: 24px; }
+    .capture h2 { font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.1; margin-bottom: 14px; }
+    .capture p { color: var(--cocoa-soft); max-width: 480px; margin: 0 auto 32px; }
+    .capture-form {
+      max-width: 420px; margin: 0 auto;
+      display: grid; gap: 14px;
+    }
+    .capture-form input {
+      font-family: var(--sans); font-size: 1rem; font-weight: 300;
+      padding: 16px 20px;
+      border: 1.5px solid rgba(51, 35, 27, 0.15);
+      border-radius: 14px;
+      background: var(--white);
+      color: var(--cocoa);
+      width: 100%;
+    }
+    .capture-form input:focus { outline: none; border-color: var(--rust); }
+    .capture-skip { margin-top: 18px; }
+
+    /* ── RESULTS ── */
+    .results { display: none; }
+    .score-hero { text-align: center; margin-bottom: 48px; }
+    .score-hero h2 { font-size: clamp(2rem, 5vw, 2.9rem); line-height: 1.1; margin-bottom: 10px; }
+    .score-hero p { color: var(--cocoa-soft); max-width: 520px; margin: 0 auto; }
+    .score-ring {
+      width: 168px; height: 168px;
+      margin: 0 auto 26px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: conic-gradient(var(--rust) calc(var(--pct) * 1%), rgba(51,35,27,0.09) 0);
+    }
+    .score-ring-inner {
+      width: 134px; height: 134px;
+      border-radius: 50%;
+      background: var(--cream);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    .score-num {
+      font-family: var(--serif);
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--cocoa);
+    }
+    .score-of { font-size: 0.8rem; color: var(--cocoa-soft); }
+    .gaps { display: grid; gap: 16px; margin-bottom: 48px; }
+    .gap-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 30px;
+      border-left: 4px solid var(--rust);
+    }
+    .gap-card.ok { border-left-color: #7B9E6B; }
+    .gap-tag {
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 6px;
+    }
+    .gap-card.ok .gap-tag { color: #5E8050; }
+    .gap-card h3 { font-size: 1.35rem; margin-bottom: 6px; }
+    .gap-card p { font-size: 0.94rem; color: var(--cocoa-soft); }
+    .results-cta {
+      background: var(--peach);
+      border-radius: var(--radius);
+      padding: 44px 36px;
+      text-align: center;
+    }
+    .results-cta h3 { font-size: clamp(1.7rem, 4vw, 2.3rem); line-height: 1.15; margin-bottom: 12px; }
+    .results-cta > p { color: var(--cocoa-soft); max-width: 460px; margin: 0 auto 28px; }
+    .results-note { font-size: 0.85rem; color: var(--cocoa-soft); margin-top: 16px; }
+    .calendly-wrap {
+      margin-top: 34px;
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      display: none;
+    }
+    .calendly-wrap.open { display: block; }
+
+    .footer {
+      background: var(--cocoa);
+      color: rgba(251, 243, 232, 0.6);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 0.8rem;
+      line-height: 1.7;
+    }
+    .footer a { color: rgba(251, 243, 232, 0.8); }
+
+    .fade { animation: fade 0.4s ease; }
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { .fade { animation: none; } }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="/fertility" class="wordmark">elevia <em>fertility</em></a>
+    </div>
+  </header>
+
+  <main>
+    <div class="shell">
+
+      <!-- INTRO -->
+      <section class="intro" id="intro">
+        <span class="intro-tag">Free · 10 questions · 3 minutes</span>
+        <h1>Your Fertility Gap <em>Assessment</em></h1>
+        <p class="intro-sub">Most couples who've been trying for months are missing 2–3 fixable gaps in their approach. Answer ten questions and find out where yours are.</p>
+        <div class="intro-points">
+          <span>Your readiness score out of 100</span>
+          <span>Your specific gap areas</span>
+          <span>What to do next</span>
+        </div>
+        <button class="btn" id="startBtn">Start my assessment</button>
+        <p class="intro-note">Educational only — this is not a medical diagnosis.</p>
+      </section>
+
+      <!-- QUIZ -->
+      <section class="quiz" id="quiz" aria-live="polite">
+        <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+        <p class="progress-label" id="progressLabel">Question 1 of 10</p>
+        <h2 class="q-title" id="qTitle"></h2>
+        <p class="q-help" id="qHelp"></p>
+        <div class="q-options" id="qOptions"></div>
+        <button class="btn-quiet q-back" id="backBtn">← Back</button>
+      </section>
+
+      <!-- CAPTURE -->
+      <section class="capture" id="capture">
+        <h2>Your results are <em>ready.</em></h2>
+        <p>Pop in your details and we'll also email you your score with a personalised next-steps guide from our clinical team.</p>
+        <form class="capture-form" id="captureForm">
+          <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required />
+          <input type="email" name="email" placeholder="Email address" autocomplete="email" required />
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+          <button type="submit" class="btn" id="captureBtn">Show my results</button>
+        </form>
+        <button class="btn-quiet capture-skip" id="skipBtn">Skip — just show my results</button>
+      </section>
+
+      <!-- RESULTS -->
+      <section class="results" id="results">
+        <div class="score-hero">
+          <div class="score-ring" id="scoreRing" style="--pct:0">
+            <div class="score-ring-inner">
+              <div class="score-num" id="scoreNum">0</div>
+              <div class="score-of">out of 100</div>
+            </div>
+          </div>
+          <h2 id="bandTitle"></h2>
+          <p id="bandCopy"></p>
+        </div>
+        <div class="gaps" id="gapsList"></div>
+        <div class="results-cta">
+          <h3>Want to close these gaps <em>properly?</em></h3>
+          <p>Book a free 10-minute discovery call with Inna's clinical team. Bring your results — we'll tell you honestly what we'd investigate first.</p>
+          <button class="btn" id="bookBtn">Book my free discovery call</button>
+          <p class="results-note">No cost · No obligation · Phone or video, Australia-wide</p>
+          <div class="calendly-wrap" id="calendlyWrap">
+            <!-- Swap data-url for a dedicated fertility discovery-call Calendly event when created -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/admin-eleviaclinic/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:300px;height:660px;"></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Elevia Fertility · <a href="mailto:admin@eleviaclinic.com">admin@eleviaclinic.com</a><br />
+    This assessment is general education, not medical advice or a diagnosis. Always consult a qualified clinician about your individual circumstances.</p>
+  </footer>
+
+  <script>
+    const QUESTIONS = [
+      {
+        title: "How long have you been trying to conceive?",
+        help: "There are no wrong answers — this shapes what matters most for you.",
+        cat: "plan",
+        options: [
+          ["Less than 6 months", 9],
+          ["6–12 months", 7],
+          ["1–2 years", 4],
+          ["More than 2 years", 2]
+        ]
+      },
+      {
+        title: "What's your age range?",
+        help: "Age changes the urgency of closing gaps — never the possibility.",
+        cat: "plan",
+        options: [
+          ["Under 30", 9],
+          ["30–34", 8],
+          ["35–39", 5],
+          ["40 or over", 3]
+        ]
+      },
+      {
+        title: "How regular is your cycle?",
+        cat: "foundations",
+        options: [
+          ["Like clockwork — and I track it", 10],
+          ["Fairly regular", 7],
+          ["Irregular or unpredictable", 3],
+          ["I don't really track it", 2]
+        ]
+      },
+      {
+        title: "Have you had comprehensive hormone and thyroid testing — beyond the standard panel?",
+        help: "Full thyroid (not just TSH), sex hormones across the cycle, insulin, key nutrients.",
+        cat: "testing",
+        options: [
+          ["Yes — recently and thoroughly", 10],
+          ["Some of it, a while ago", 5],
+          ["Only the basic tests", 3],
+          ["No / I'm not sure", 1]
+        ]
+      },
+      {
+        title: "Has your partner had a full semen analysis?",
+        help: "Male factor plays a role in around half of all fertility challenges.",
+        cat: "testing",
+        options: [
+          ["Yes — within the last year", 10],
+          ["Yes, but over a year ago", 6],
+          ["No", 1],
+          ["Not applicable to us", 6]
+        ]
+      },
+      {
+        title: "Have you experienced miscarriage?",
+        help: "We ask gently — it changes what deserves investigation.",
+        cat: "history",
+        options: [
+          ["No", 9],
+          ["Once", 6],
+          ["More than once", 3],
+          ["I'd rather not say", 6]
+        ]
+      },
+      {
+        title: "Have you been through IUI or IVF?",
+        cat: "history",
+        options: [
+          ["No — trying naturally", 8],
+          ["One cycle", 6],
+          ["Two or more cycles", 3],
+          ["Currently in a cycle", 5]
+        ]
+      },
+      {
+        title: "How are your sleep and energy levels?",
+        cat: "foundations",
+        options: [
+          ["Great — I wake rested", 10],
+          ["Okay, but could be better", 6],
+          ["Poor — tired most days", 2],
+          ["All over the place", 3]
+        ]
+      },
+      {
+        title: "How would you rate your stress right now?",
+        cat: "foundations",
+        options: [
+          ["Low — life feels manageable", 10],
+          ["Moderate", 6],
+          ["High — most days feel heavy", 2],
+          ["Trying to conceive IS the stress", 3]
+        ]
+      },
+      {
+        title: "Do you have a clear, personalised preconception plan right now?",
+        help: "Testing, treatment, nutrition and timing — written down and guided by a clinician.",
+        cat: "plan",
+        options: [
+          ["Yes — detailed and clinician-led", 10],
+          ["Sort of — bits and pieces", 5],
+          ["No — we're just trying", 1],
+          ["We had one, but it stalled", 4]
+        ]
+      }
+    ];
+
+    const CATS = {
+      testing: {
+        label: "Testing gap",
+        bad: ["Your testing is incomplete", "Most couples in your position have never had the full picture measured — comprehensive thyroid, cycle-mapped hormones, nutrients, and a recent semen analysis. This is usually the fastest gap to close, and the most revealing."],
+        good: ["Testing looks solid", "You've done more investigation than most. The next step is making sure the results are interpreted together, not in isolation."]
+      },
+      foundations: {
+        label: "Foundations gap",
+        bad: ["Your foundations need support", "Cycle regularity, sleep and stress aren't 'soft' factors — they directly shape ovulation, egg quality and implantation. A structured plan here moves the needle more than most people expect."],
+        good: ["Strong foundations", "Your cycle, sleep and stress picture looks healthy — a genuine advantage worth protecting through the process ahead."]
+      },
+      history: {
+        label: "History signal",
+        bad: ["Your history deserves deeper answers", "Miscarriage or unsuccessful cycles are not 'bad luck' to be repeated — they're information. A root-cause work-up looks for the reasons others haven't investigated."],
+        good: ["No red flags in your history", "Nothing in your history suggests hidden obstacles — which makes closing your other gaps even more worthwhile."]
+      },
+      plan: {
+        label: "Plan gap",
+        bad: ["You don't have a real plan yet", "\"Keep trying and hope\" is the default advice — and it costs couples years. A guided 120-day preconception plan turns that time into progress you can measure."],
+        good: ["You're working to a plan", "Having structure puts you ahead of most. A clinician's eye can still sharpen what you're already doing."]
+      }
+    };
+
+    const state = { i: 0, answers: [] };
+
+    const intro = document.getElementById('intro');
+    const quiz = document.getElementById('quiz');
+    const capture = document.getElementById('capture');
+    const results = document.getElementById('results');
+    const qTitle = document.getElementById('qTitle');
+    const qHelp = document.getElementById('qHelp');
+    const qOptions = document.getElementById('qOptions');
+    const progressFill = document.getElementById('progressFill');
+    const progressLabel = document.getElementById('progressLabel');
+
+    document.getElementById('startBtn').addEventListener('click', () => {
+      intro.style.display = 'none';
+      quiz.style.display = 'block';
+      render();
+    });
+
+    function render() {
+      const q = QUESTIONS[state.i];
+      progressFill.style.width = ((state.i) / QUESTIONS.length * 100) + '%';
+      progressLabel.textContent = `Question ${state.i + 1} of ${QUESTIONS.length}`;
+      qTitle.textContent = q.title;
+      qHelp.textContent = q.help || '';
+      qHelp.style.display = q.help ? 'block' : 'none';
+      qOptions.innerHTML = '';
+      q.options.forEach(([label, score]) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'q-option';
+        b.textContent = label;
+        b.addEventListener('click', () => answer(label, score));
+        qOptions.appendChild(b);
+      });
+      document.getElementById('backBtn').style.visibility = state.i === 0 ? 'hidden' : 'visible';
+      quiz.classList.remove('fade'); void quiz.offsetWidth; quiz.classList.add('fade');
+    }
+
+    function answer(label, score) {
+      state.answers[state.i] = { label, score, cat: QUESTIONS[state.i].cat };
+      if (state.i < QUESTIONS.length - 1) {
+        state.i++;
+        render();
+      } else {
+        progressFill.style.width = '100%';
+        quiz.style.display = 'none';
+        capture.style.display = 'block';
+      }
+    }
+
+    document.getElementById('backBtn').addEventListener('click', () => {
+      if (state.i > 0) { state.i--; render(); }
+    });
+
+    function computeResults() {
+      const byCat = {};
+      state.answers.forEach(a => {
+        (byCat[a.cat] = byCat[a.cat] || []).push(a.score);
+      });
+      const catPct = {};
+      let total = 0, max = 0;
+      for (const c in byCat) {
+        const sum = byCat[c].reduce((x, y) => x + y, 0);
+        const m = byCat[c].length * 10;
+        catPct[c] = Math.round(sum / m * 100);
+        total += sum; max += m;
+      }
+      return { score: Math.round(total / max * 100), catPct };
+    }
+
+    function showResults() {
+      capture.style.display = 'none';
+      results.style.display = 'block';
+      results.classList.add('fade');
+      const { score, catPct } = computeResults();
+
+      // Animate ring + number
+      const ring = document.getElementById('scoreRing');
+      const num = document.getElementById('scoreNum');
+      let cur = 0;
+      const step = () => {
+        cur = Math.min(cur + 2, score);
+        num.textContent = cur;
+        ring.style.setProperty('--pct', cur);
+        if (cur < score) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+
+      const bandTitle = document.getElementById('bandTitle');
+      const bandCopy = document.getElementById('bandCopy');
+      if (score >= 75) {
+        bandTitle.innerHTML = 'Strong foundations — with room to <em>fine-tune.</em>';
+        bandCopy.textContent = "You're doing a lot right. For you, it's about precision: confirming nothing subtle is being missed, and protecting the advantages you already have.";
+      } else if (score >= 45) {
+        bandTitle.innerHTML = 'You have clear, fixable <em>gaps.</em>';
+        bandCopy.textContent = "This is the most common result we see — and the most encouraging. The gaps below are specific, addressable, and closing them is exactly what a root-cause work-up is for.";
+      } else {
+        bandTitle.innerHTML = 'Significant gaps — and significant <em>opportunity.</em>';
+        bandCopy.textContent = "Don't be disheartened: a lower score usually means the important work simply hasn't been done yet. That's not a dead end — it's a to-do list.";
+      }
+
+      const list = document.getElementById('gapsList');
+      list.innerHTML = '';
+      const order = ['testing', 'plan', 'foundations', 'history'];
+      order.forEach(c => {
+        if (!(c in catPct)) return;
+        const ok = catPct[c] >= 60;
+        const [h, p] = ok ? CATS[c].good : CATS[c].bad;
+        const card = document.createElement('div');
+        card.className = 'gap-card' + (ok ? ' ok' : '');
+        card.innerHTML = `<div class="gap-tag">${ok ? 'Looking good' : CATS[c].label}</div><h3></h3><p></p>`;
+        card.querySelector('h3').textContent = h;
+        card.querySelector('p').textContent = p;
+        list.appendChild(card);
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Lead capture → Web3Forms, then results either way
+    document.getElementById('captureForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('captureBtn');
+      btn.textContent = 'One moment…'; btn.disabled = true;
+      const { score, catPct } = computeResults();
+      const form = e.target;
+      const summary = state.answers.map((a, i) => `Q${i + 1}: ${a.label}`).join(' | ');
+      try {
+        await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: '3601377e-a776-4331-92ab-baa19c0e61c6',
+            subject: 'New Fertility Gap Assessment lead — Elevia Fertility',
+            from_name: 'Elevia Fertility Assessment',
+            first_name: form.first_name.value,
+            email: form.email.value,
+            score: score + '/100',
+            category_scores: Object.entries(catPct).map(([c, p]) => `${c}: ${p}%`).join(', '),
+            answers: summary,
+            botcheck: form.botcheck.checked ? 'yes' : ''
+          })
+        });
+      } catch (_) { /* show results regardless */ }
+      btn.textContent = 'Show my results'; btn.disabled = false;
+      showResults();
+    });
+
+    document.getElementById('skipBtn').addEventListener('click', showResults);
+
+    // Reveal Calendly on demand (keeps page fast)
+    document.getElementById('bookBtn').addEventListener('click', () => {
+      const wrap = document.getElementById('calendlyWrap');
+      wrap.classList.add('open');
+      if (!document.getElementById('calendlyScript')) {
+        const s = document.createElement('script');
+        s.id = 'calendlyScript';
+        s.src = 'https://assets.calendly.com/assets/external/widget.js';
+        document.body.appendChild(s);
+      }
+      document.getElementById('bookBtn').style.display = 'none';
+      wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</body>
+</html>
