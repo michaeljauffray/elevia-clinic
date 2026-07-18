@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Masterclass: Why "Keep Trying" Isn't a Plan — Elevia Fertility</title>
+  <meta name="description" content="A free 50-minute masterclass with Inna from Elevia Fertility: what standard fertility work-ups miss, and the root-cause approach that changes outcomes. Then book your free discovery call." />
+  <!-- Draft preview: remove noindex when live on eleviafertility.com -->
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream: #FBF3E8;
+      --peach: #F5E3D0;
+      --blush: #EFD3BC;
+      --rust: #C75B33;
+      --rust-dark: #A8461F;
+      --cocoa: #33231B;
+      --cocoa-soft: #6E5A4E;
+      --white: #FFFDFA;
+      --serif: 'Fraunces', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --radius: 26px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      font-weight: 300;
+      color: var(--cocoa);
+      background: var(--cream);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    .container { max-width: 1060px; margin: 0 auto; padding: 0 28px; }
+
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; color: var(--cocoa); }
+    h1 em, h2 em { font-style: italic; font-weight: 300; color: var(--rust); }
+
+    .nav {
+      background: var(--cream);
+      border-bottom: 1px solid rgba(51, 35, 27, 0.08);
+    }
+    .nav-inner {
+      max-width: 1060px; margin: 0 auto;
+      padding: 18px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .wordmark {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      color: var(--cocoa);
+      text-decoration: none;
+      line-height: 1;
+    }
+    .wordmark em { font-style: italic; color: var(--rust); }
+    .nav-cta {
+      background: var(--rust); color: var(--white);
+      padding: 10px 22px; border-radius: 100px;
+      font-size: 0.9rem; font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--rust-dark); }
+
+    .btn {
+      display: inline-block;
+      background: var(--rust); color: var(--white);
+      font-family: var(--sans); font-size: 1rem; font-weight: 500;
+      padding: 17px 40px; border-radius: 100px;
+      text-decoration: none;
+      border: 0; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn:hover { background: var(--rust-dark); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 64px 0 72px;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--rust);
+      background: rgba(199, 91, 51, 0.1);
+      padding: 7px 16px; border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2.3rem, 5.4vw, 3.7rem);
+      line-height: 1.08;
+      max-width: 760px;
+      margin: 0 auto 18px;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--cocoa-soft);
+      max-width: 560px;
+      margin: 0 auto 44px;
+    }
+
+    /* ── VIDEO ── */
+    .video-frame {
+      max-width: 880px;
+      margin: 0 auto;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--cocoa);
+      box-shadow: 0 24px 70px rgba(51, 35, 27, 0.18);
+      position: relative;
+      aspect-ratio: 16 / 9;
+    }
+    .video-frame iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    .video-placeholder {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 16px;
+      color: var(--cream);
+      text-align: center;
+      padding: 32px;
+    }
+    .video-placeholder .play-ring {
+      width: 84px; height: 84px;
+      border-radius: 50%;
+      border: 2px solid rgba(251, 243, 232, 0.4);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .video-placeholder .play-ring svg { margin-left: 5px; }
+    .video-placeholder h3 {
+      color: var(--cream);
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+    .video-placeholder p { font-size: 0.88rem; color: rgba(251, 243, 232, 0.6); max-width: 380px; }
+    .video-meta {
+      display: flex; justify-content: center; gap: 26px; flex-wrap: wrap;
+      margin-top: 22px;
+      font-size: 0.88rem; color: var(--cocoa-soft);
+    }
+    .video-meta span::before { content: '✓  '; color: var(--rust); font-weight: 500; }
+
+    /* ── LEARN ── */
+    .learn {
+      background: var(--white);
+      padding: 96px 0;
+      margin-top: 80px;
+    }
+    .learn-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .learn h2 {
+      font-size: clamp(2rem, 3.6vw, 2.9rem);
+      line-height: 1.1;
+      margin-bottom: 18px;
+      position: sticky; top: 32px;
+    }
+    .learn-sub { color: var(--cocoa-soft); font-size: 1.02rem; max-width: 380px; }
+    .learn-item {
+      display: flex; gap: 20px;
+      padding: 24px 0;
+      border-top: 1px solid rgba(51, 35, 27, 0.12);
+    }
+    .learn-item:last-child { border-bottom: 1px solid rgba(51, 35, 27, 0.12); }
+    .learn-time {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--rust);
+      font-size: 1.05rem;
+      min-width: 74px;
+    }
+    .learn-item h3 { font-size: 1.3rem; margin-bottom: 4px; }
+    .learn-item p { font-size: 0.94rem; color: var(--cocoa-soft); }
+
+    @media (max-width: 860px) {
+      .learn { padding: 64px 0; margin-top: 56px; }
+      .learn-grid { grid-template-columns: 1fr; gap: 36px; }
+      .learn h2 { position: static; }
+    }
+
+    /* ── INNA ── */
+    .inna { padding: 96px 0; }
+    .inna-grid {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 68px;
+      align-items: center;
+    }
+    .inna-photo {
+      border-radius: 230px 230px var(--radius) var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      max-width: 330px;
+      background: var(--peach);
+    }
+    .inna-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .inna h2 {
+      font-size: clamp(2rem, 3.6vw, 2.9rem);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .inna p { color: var(--cocoa-soft); font-size: 1.03rem; max-width: 520px; margin-bottom: 18px; }
+    .inna-creds {
+      font-size: 0.85rem !important;
+      color: rgba(51, 35, 27, 0.5) !important;
+    }
+
+    @media (max-width: 860px) {
+      .inna { padding: 64px 0; }
+      .inna-grid { grid-template-columns: 1fr; gap: 40px; }
+      .inna-photo { margin: 0 auto; }
+    }
+
+    /* ── BOOK ── */
+    .book {
+      background: var(--peach);
+      padding: 96px 0 76px;
+    }
+    .book-head { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+    .book-head h2 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); line-height: 1.08; margin-bottom: 18px; }
+    .book-head p { color: var(--cocoa-soft); font-size: 1.08rem; }
+    .book-widget {
+      max-width: 860px; margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(51, 35, 27, 0.08);
+    }
+    .book-note { text-align: center; font-size: 0.88rem; color: var(--cocoa-soft); margin-top: 20px; }
+
+    @media (max-width: 860px) { .book { padding: 64px 0 52px; } }
+
+    .footer {
+      background: var(--cocoa);
+      color: rgba(251, 243, 232, 0.6);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 0.8rem;
+      line-height: 1.7;
+    }
+    .footer a { color: rgba(251, 243, 232, 0.8); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="/fertility" class="wordmark">elevia <em>fertility</em></a>
+      <a href="#book" class="nav-cta">Book a free call</a>
+    </div>
+  </header>
+
+  <!-- HERO + VIDEO -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-tag">Free masterclass · 50 minutes</span>
+      <h1>Why "just keep trying" isn't a <em>plan.</em></h1>
+      <p class="hero-sub">Inna walks through what standard fertility work-ups routinely miss, why "unexplained" is where investigation should start — and the root-cause approach that changes outcomes.</p>
+      <div class="video-frame" id="videoFrame">
+        <!-- The placeholder below is replaced automatically when WEBINAR_VIMEO_ID is set in the script at the bottom of this file -->
+        <div class="video-placeholder" id="videoPlaceholder">
+          <div class="play-ring">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="rgba(251,243,232,0.85)"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <h3>The masterclass premieres here</h3>
+          <p>We're putting the finishing touches on the recording. Book your free discovery call below — you'll get the video by email the moment it's live.</p>
+        </div>
+      </div>
+      <div class="video-meta">
+        <span>50 minutes</span>
+        <span>Presented by Inna</span>
+        <span>Watch anytime, free</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU'LL LEARN -->
+  <section class="learn">
+    <div class="container learn-grid">
+      <div class="reveal">
+        <h2>What you'll <em>learn.</em></h2>
+        <p class="learn-sub">Fifty minutes that could save you years of guessing.</p>
+      </div>
+      <div class="reveal">
+        <div class="learn-item">
+          <div class="learn-time">00–08</div>
+          <div>
+            <h3>Why "everything looks normal" so often isn't</h3>
+            <p>The difference between a screening range and an optimal range — and why it matters most when you're trying to conceive.</p>
+          </div>
+        </div>
+        <div class="learn-item">
+          <div class="learn-time">08–20</div>
+          <div>
+            <h3>The tests most work-ups skip</h3>
+            <p>Full thyroid, cycle-mapped hormones, nutrients, insulin — and the male-factor testing half of couples never complete.</p>
+          </div>
+        </div>
+        <div class="learn-item">
+          <div class="learn-time">20–34</div>
+          <div>
+            <h3>The 120-day window</h3>
+            <p>How egg and sperm quality are shaped in the months before conception — and how to use that window deliberately.</p>
+          </div>
+        </div>
+        <div class="learn-item">
+          <div class="learn-time">34–44</div>
+          <div>
+            <h3>Root causes, stacked together</h3>
+            <p>How small, individually "minor" imbalances compound — and why treating them as one plan beats ten separate referrals.</p>
+          </div>
+        </div>
+        <div class="learn-item">
+          <div class="learn-time">44–50</div>
+          <div>
+            <h3>Your next step</h3>
+            <p>How to decide, honestly, whether a root-cause work-up is right for you — before, alongside, or instead of IVF.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INNA -->
+  <section class="inna">
+    <div class="container inna-grid">
+      <div class="inna-photo reveal">
+        <img src="headshot 2.png" alt="Inna, Elevia Fertility senior clinician" />
+      </div>
+      <div class="reveal">
+        <h2>Your presenter, <em>Inna.</em></h2>
+        <p>Inna leads the clinical team at Elevia — qualified Naturopathic Doctors and integrative medicine practitioners who have spent decades helping women understand what their bodies have been trying to tell them.</p>
+        <p>Her fertility work rests on one conviction: when a couple is told "unexplained", it usually means "not yet investigated." This masterclass is the investigation, explained.</p>
+        <p class="inna-creds">BHSc (ND) · Dip (Pharm) · Adv Dip (Nat) · BA · ATMS Hormone Specialist</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK -->
+  <section class="book" id="book">
+    <div class="container">
+      <div class="book-head reveal">
+        <h2>Then let's talk about <em>you.</em></h2>
+        <p>The masterclass covers the approach — your free 10-minute discovery call with Inna's team covers your situation. No cost, no obligation, no pressure.</p>
+      </div>
+      <div class="book-widget reveal">
+        <!-- Calendly inline widget: swap data-url for a dedicated fertility discovery-call event when created -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/admin-eleviaclinic/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      </div>
+      <p class="book-note">Phone or video · Australia-wide · You'll speak with a clinician, not a salesperson</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Elevia Fertility · <a href="mailto:admin@eleviaclinic.com">admin@eleviaclinic.com</a><br />
+    General information only — not a substitute for personalised medical advice.</p>
+  </footer>
+
+  <script>
+    // ── WEBINAR VIDEO ──
+    // When the 50-minute recording is uploaded to Vimeo, paste its ID here (e.g. '1181027080').
+    // The placeholder swaps for the player automatically.
+    const WEBINAR_VIMEO_ID = '';
+
+    if (WEBINAR_VIMEO_ID) {
+      const frame = document.getElementById('videoFrame');
+      frame.innerHTML = '';
+      const ifr = document.createElement('iframe');
+      ifr.src = `https://player.vimeo.com/video/${WEBINAR_VIMEO_ID}?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0`;
+      ifr.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media';
+      ifr.title = 'Elevia Fertility Masterclass';
+      frame.appendChild(ifr);
+    }
+
+    // Gentle reveals
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
