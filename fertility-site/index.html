@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elevia Fertility — Root-Cause Fertility Care, Australia-Wide Telehealth</title>
-  <meta name="description" content="For women and couples who've been trying long enough. Comprehensive testing for both partners, and a personalised preconception plan — by telehealth, Australia-wide." />
+  <title>Elevia Fertility — Root-Cause Fertility Care for Couples Who've Been Trying Long Enough</title>
+  <meta name="description" content="For couples trying 12+ months, after IVF, or after miscarriage. The Elevia Fertility Method finds and treats what standard work-ups miss — both partners, no stone unturned. Free discovery call, Australia-wide telehealth." />
   <!-- Draft preview: remove noindex when live on eleviafertility.com -->
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,17 +14,17 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --cream: #FBF3E8;
-      --peach: #F5E3D0;
-      --blush: #EFD3BC;
-      --rust: #C75B33;
-      --rust-dark: #A8461F;
-      --cocoa: #33231B;
-      --cocoa-soft: #6E5A4E;
-      --white: #FFFDFA;
+      --cream: #FAF1E5;        /* warm ivory background */
+      --blush: #F3D8CA;        /* soft skin-tone panel */
+      --rose: #EBC2B0;         /* deeper nude accent */
+      --maroon: #64200F;       /* deep oxblood — headlines, buttons */
+      --maroon-deep: #471407;
+      --ink: #3B241A;          /* body text, warm dark brown */
+      --soft: #82604F;         /* muted text */
+      --white: #FFFBF5;
       --serif: 'Fraunces', Georgia, serif;
       --sans: 'DM Sans', system-ui, sans-serif;
-      --radius: 26px;
+      --radius: 24px;
     }
 
     html { scroll-behavior: smooth; }
@@ -32,7 +32,7 @@
     body {
       font-family: var(--sans);
       font-weight: 300;
-      color: var(--cocoa);
+      color: var(--ink);
       background: var(--cream);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
@@ -40,385 +40,558 @@
 
     img { display: block; max-width: 100%; }
 
-    .container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
 
-    h1, h2, h3 { font-family: var(--serif); font-weight: 400; color: var(--cocoa); letter-spacing: -0.01em; }
-    h1 em, h2 em { font-style: italic; font-weight: 300; color: var(--rust); }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; color: var(--maroon); }
+    h1 em, h2 em, h3 em { font-style: italic; font-weight: 300; }
+
+    /* ── IMAGE PLACEHOLDER (swap for real photography before launch) ── */
+    .img-ph {
+      background: var(--blush);
+      border: 1.5px dashed rgba(100, 32, 15, 0.4);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 12px;
+      text-align: center;
+      padding: 28px;
+    }
+    .img-ph svg { opacity: 0.45; }
+    .img-ph .ph-tag {
+      font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(100, 32, 15, 0.55);
+    }
+    .img-ph .ph-desc {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--maroon);
+      max-width: 240px;
+      line-height: 1.4;
+    }
 
     /* ── NAV ── */
     .nav {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(251, 243, 232, 0.93);
+      background: rgba(250, 241, 229, 0.94);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(51, 35, 27, 0.08);
+      border-bottom: 1px solid rgba(100, 32, 15, 0.1);
     }
     .nav-inner {
-      max-width: 1160px; margin: 0 auto;
-      padding: 18px 28px;
+      max-width: 1140px; margin: 0 auto;
+      padding: 17px 28px;
       display: flex; align-items: center; justify-content: space-between;
       gap: 24px;
     }
     .wordmark {
       font-family: var(--serif);
       font-size: 1.5rem;
-      color: var(--cocoa);
+      color: var(--maroon);
       text-decoration: none;
       line-height: 1;
     }
-    .wordmark em { font-style: italic; color: var(--rust); }
-    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .wordmark em { font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
     .nav-links a {
-      color: var(--cocoa-soft); text-decoration: none;
+      color: var(--ink); text-decoration: none;
       font-size: 0.92rem; font-weight: 400;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--rust); }
+    .nav-links a:hover { color: var(--maroon); }
     .nav-book {
-      background: var(--rust); color: var(--white) !important;
+      background: var(--maroon); color: var(--cream) !important;
       padding: 11px 24px; border-radius: 100px;
       font-weight: 500 !important;
       transition: background 0.2s;
     }
-    .nav-book:hover { background: var(--rust-dark); }
+    .nav-book:hover { background: var(--maroon-deep); }
     .nav-toggle {
       display: none;
       background: none; border: 0; cursor: pointer;
-      padding: 8px; color: var(--cocoa);
+      padding: 8px; color: var(--maroon);
     }
     .nav-toggle svg { display: block; }
     .nav-mobile {
       display: none;
-      border-top: 1px solid rgba(51, 35, 27, 0.08);
+      border-top: 1px solid rgba(100, 32, 15, 0.08);
       padding: 8px 28px 20px;
     }
     .nav-mobile.open { display: block; }
     .nav-mobile a {
       display: block; padding: 12px 0;
-      color: var(--cocoa); text-decoration: none;
+      color: var(--ink); text-decoration: none;
       font-size: 1.05rem;
-      border-bottom: 1px solid rgba(51, 35, 27, 0.06);
+      border-bottom: 1px solid rgba(100, 32, 15, 0.06);
     }
     .nav-mobile a:last-child { border-bottom: 0; }
 
-    @media (max-width: 900px) {
+    @media (max-width: 940px) {
       .nav-links { display: none; }
       .nav-toggle { display: block; }
     }
 
     /* ── HERO ── */
-    .hero { padding: 72px 0 92px; }
+    .hero { padding: 68px 0 84px; }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 72px;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 64px;
       align-items: center;
     }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--maroon);
+      background: rgba(100, 32, 15, 0.08);
+      padding: 7px 16px; border-radius: 100px;
+      margin-bottom: 22px;
+    }
     .hero h1 {
-      font-size: clamp(2.8rem, 5.2vw, 4.2rem);
+      font-size: clamp(2.7rem, 5.2vw, 4.1rem);
       line-height: 1.05;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
     }
     .hero-sub {
       font-size: 1.12rem;
-      color: var(--cocoa-soft);
-      max-width: 480px;
-      margin-bottom: 36px;
+      color: var(--soft);
+      max-width: 500px;
+      margin-bottom: 34px;
     }
     .btn {
       display: inline-block;
-      background: var(--rust); color: var(--white);
+      background: var(--maroon); color: var(--cream);
       font-family: var(--sans); font-size: 0.97rem; font-weight: 500;
       padding: 16px 36px; border-radius: 100px;
       text-decoration: none;
       transition: background 0.2s, transform 0.2s;
       border: 0; cursor: pointer;
     }
-    .btn:hover { background: var(--rust-dark); transform: translateY(-1px); }
+    .btn:hover { background: var(--maroon-deep); transform: translateY(-1px); }
     .btn-ghost {
       display: inline-block;
-      color: var(--cocoa);
+      color: var(--maroon);
       font-size: 0.97rem; font-weight: 500;
       padding: 16px 32px; border-radius: 100px;
-      border: 1.5px solid rgba(51, 35, 27, 0.25);
+      border: 1.5px solid rgba(100, 32, 15, 0.35);
       text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
+      transition: border-color 0.2s, background 0.2s;
       margin-left: 12px;
     }
-    .btn-ghost:hover { border-color: var(--rust); color: var(--rust); }
+    .btn-ghost:hover { border-color: var(--maroon); background: rgba(100, 32, 15, 0.05); }
     .hero-note {
       font-size: 0.88rem;
-      color: var(--cocoa-soft);
+      color: var(--soft);
       margin-top: 16px;
     }
-    .hero-from {
-      display: flex; align-items: center; gap: 14px;
-      margin-top: 44px;
-    }
-    .hero-avatars { display: flex; }
-    .hero-avatars img {
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      border: 2px solid var(--cream);
-      object-fit: cover;
-      margin-left: -10px;
-    }
-    .hero-avatars img:first-child { margin-left: 0; }
-    .hero-from p { font-size: 0.88rem; color: var(--cocoa-soft); line-height: 1.4; }
-    .hero-from strong { font-weight: 500; color: var(--cocoa); }
     .hero-photo {
-      border-radius: 230px 230px var(--radius) var(--radius);
+      border-radius: 200px 200px var(--radius) var(--radius);
       overflow: hidden;
-      aspect-ratio: 4 / 4.3;
-      background: var(--peach);
+      aspect-ratio: 4 / 4.5;
     }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
 
     @media (max-width: 900px) {
-      .hero { padding: 48px 0 64px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 44px; }
-      .hero-photo { order: -1; max-width: 420px; margin: 0 auto; aspect-ratio: 4 / 4; }
+      .hero { padding: 44px 0 60px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-photo { order: -1; max-width: 400px; margin: 0 auto; aspect-ratio: 4 / 4; }
       .btn-ghost { margin-left: 0; margin-top: 12px; }
     }
 
-    /* ── WHO IT'S FOR ── */
-    .who {
-      background: var(--white);
-      padding: 104px 0;
+    /* ── CRED STRIP ── */
+    .cred {
+      background: var(--maroon);
+      color: var(--cream);
+      padding: 34px 0;
     }
-    .who-head { max-width: 640px; margin-bottom: 52px; }
-    .who-head h2 {
-      font-size: clamp(2.1rem, 3.6vw, 3rem);
+    .cred-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 22px;
+    }
+    .cred-brand {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 0.92rem;
+    }
+    .cred-avatars { display: flex; }
+    .cred-avatars img {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--maroon);
+      object-fit: cover;
+      margin-left: -10px;
+    }
+    .cred-avatars img:first-child { margin-left: 0; }
+    .cred-stats { display: flex; gap: 44px; flex-wrap: wrap; }
+    .cred-stat .n {
+      font-family: var(--serif);
+      font-size: 1.6rem;
       line-height: 1.1;
-      margin-bottom: 20px;
     }
-    .who-head p { color: var(--cocoa-soft); font-size: 1.08rem; }
-    .who-grid {
+    .cred-stat .l { font-size: 0.8rem; opacity: 0.75; }
+
+    @media (max-width: 700px) {
+      .cred-inner { flex-direction: column; align-items: flex-start; }
+      .cred-stats { gap: 28px; }
+    }
+
+    /* ── TOLD (pain section) ── */
+    .told { padding: 100px 0; }
+    .told-head { text-align: center; max-width: 620px; margin: 0 auto 48px; }
+    .told-head h2 {
+      font-size: clamp(2.1rem, 3.8vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .told-head p { color: var(--soft); font-size: 1.06rem; }
+    .told-quotes {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 18px;
+      margin-bottom: 52px;
     }
-    .who-card {
-      background: var(--cream);
+    .told-quote {
+      background: var(--white);
       border-radius: var(--radius);
       padding: 30px 26px;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      line-height: 1.35;
+      color: var(--ink);
     }
-    .who-card h3 { font-size: 1.3rem; margin-bottom: 8px; }
-    .who-card p { font-size: 0.92rem; color: var(--cocoa-soft); line-height: 1.55; }
-
-    @media (max-width: 980px) {
-      .who { padding: 72px 0; }
-      .who-grid { grid-template-columns: 1fr 1fr; }
+    .told-quote::before {
+      content: '“';
+      font-size: 2.6rem;
+      color: var(--rose);
+      display: block;
+      line-height: 0.6;
+      margin-bottom: 10px;
     }
-    @media (max-width: 560px) { .who-grid { grid-template-columns: 1fr; } }
+    .told-counter {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .told-counter p {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      line-height: 1.3;
+      color: var(--maroon);
+    }
+    .told-counter p em { font-style: italic; }
 
-    /* ── APPROACH ── */
-    .approach { padding: 104px 0; }
-    .approach-grid {
+    @media (max-width: 940px) {
+      .told { padding: 68px 0; }
+      .told-quotes { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 540px) { .told-quotes { grid-template-columns: 1fr; } }
+
+    /* ── FOR (who it's for) ── */
+    .for {
+      background: var(--blush);
+      padding: 100px 0;
+    }
+    .for-grid {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 76px;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 64px;
       align-items: center;
     }
-    .approach-photo {
+    .for-photo {
       border-radius: var(--radius);
       overflow: hidden;
       aspect-ratio: 4 / 4.4;
     }
-    .approach-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .approach h2 {
-      font-size: clamp(2.1rem, 3.6vw, 3rem);
+    .for-photo.img-ph { background: var(--cream); }
+    .for h2 {
+      font-size: clamp(2.1rem, 3.8vw, 3rem);
       line-height: 1.1;
-      margin-bottom: 22px;
-    }
-    .approach-lead {
-      font-size: 1.08rem;
-      color: var(--cocoa-soft);
-      max-width: 500px;
-      margin-bottom: 34px;
-    }
-    .approach-item {
-      display: flex; gap: 18px;
-      padding: 20px 0;
-      border-top: 1px solid rgba(51, 35, 27, 0.12);
-    }
-    .approach-item:last-of-type { border-bottom: 1px solid rgba(51, 35, 27, 0.12); }
-    .approach-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--rust);
-      flex-shrink: 0;
-      margin-top: 9px;
-    }
-    .approach-item h3 { font-size: 1.25rem; margin-bottom: 3px; }
-    .approach-item p { font-size: 0.94rem; color: var(--cocoa-soft); max-width: 460px; }
-
-    @media (max-width: 900px) {
-      .approach { padding: 72px 0; }
-      .approach-grid { grid-template-columns: 1fr; gap: 44px; }
-      .approach-photo { max-width: 420px; margin: 0 auto; aspect-ratio: 4/3.6; }
-    }
-
-    /* ── HOW ── */
-    .how {
-      background: var(--peach);
-      padding: 104px 0;
-    }
-    .how-head { text-align: center; max-width: 560px; margin: 0 auto 60px; }
-    .how-head h2 { font-size: clamp(2.1rem, 3.6vw, 3rem); line-height: 1.1; margin-bottom: 16px; }
-    .how-head p { color: var(--cocoa-soft); font-size: 1.05rem; }
-    .how-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-    .how-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 36px 30px;
-    }
-    .how-num {
-      font-family: var(--serif);
-      font-size: 2.2rem;
-      font-style: italic;
-      color: var(--rust);
-      line-height: 1;
       margin-bottom: 18px;
     }
-    .how-card h3 { font-size: 1.35rem; margin-bottom: 8px; }
-    .how-card p { font-size: 0.94rem; color: var(--cocoa-soft); }
-    .how-cta { text-align: center; margin-top: 48px; }
+    .for-lead { color: var(--soft); font-size: 1.06rem; max-width: 480px; margin-bottom: 30px; }
+    .for-list { list-style: none; display: grid; gap: 14px; }
+    .for-list li {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 18px 22px;
+      display: flex; gap: 14px; align-items: baseline;
+      font-size: 1rem;
+    }
+    .for-list li strong { font-weight: 500; }
+    .for-list li::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--maroon);
+      flex-shrink: 0;
+      transform: translateY(-1px);
+    }
 
     @media (max-width: 900px) {
-      .how { padding: 72px 0; }
-      .how-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+      .for { padding: 68px 0; }
+      .for-grid { grid-template-columns: 1fr; gap: 40px; }
+      .for-photo { max-width: 400px; margin: 0 auto; aspect-ratio: 4/3.6; }
     }
 
-    /* ── CLINICIAN ── */
-    .clinician { padding: 104px 0; }
-    .clinician-grid {
+    /* ── METHOD ── */
+    .method { padding: 108px 0; }
+    .method-head { text-align: center; max-width: 660px; margin: 0 auto 20px; }
+    .method-head h2 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 16px;
+    }
+    .method-head > p { color: var(--soft); font-size: 1.08rem; max-width: 560px; margin: 0 auto; }
+    .method-tagline {
+      text-align: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--maroon);
+      margin: 18px auto 56px;
+    }
+    .method-grid {
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 76px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .method-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 34px 30px;
+      border-top: 3px solid var(--rose);
+    }
+    .method-num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--soft);
+      margin-bottom: 14px;
+    }
+    .method-card h3 { font-size: 1.5rem; margin-bottom: 8px; }
+    .method-card p { font-size: 0.94rem; color: var(--soft); }
+    .method-cta { text-align: center; margin-top: 52px; }
+
+    @media (max-width: 940px) {
+      .method { padding: 68px 0; }
+      .method-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) { .method-grid { grid-template-columns: 1fr; } }
+
+    /* ── STORIES ── */
+    .stories {
+      background: var(--maroon);
+      padding: 100px 0;
+    }
+    .stories-head { text-align: center; max-width: 560px; margin: 0 auto 52px; }
+    .stories-head h2 {
+      color: var(--cream);
+      font-size: clamp(2.1rem, 3.8vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .stories-head h2 em { color: var(--rose); }
+    .stories-head p { color: rgba(250, 241, 229, 0.75); font-size: 1.04rem; }
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .story-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--cream);
+    }
+    .story-media { aspect-ratio: 4 / 3.4; }
+    .story-media.img-ph { border: 0; border-bottom: 1.5px dashed rgba(100, 32, 15, 0.35); border-radius: 0; }
+    .story-body { padding: 22px 24px 26px; }
+    .story-body p { font-size: 0.93rem; color: var(--soft); font-style: italic; }
+
+    @media (max-width: 900px) {
+      .stories { padding: 68px 0; }
+      .stories-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+    }
+
+    /* ── INNA ── */
+    .inna { padding: 108px 0; }
+    .inna-grid {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 68px;
       align-items: center;
     }
-    .clinician-photo {
-      border-radius: 230px 230px var(--radius) var(--radius);
+    .inna-photo {
+      border-radius: 200px 200px var(--radius) var(--radius);
       overflow: hidden;
       aspect-ratio: 4 / 5;
       max-width: 360px;
-      background: var(--peach);
+      background: var(--blush);
     }
-    .clinician-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-    .clinician h2 {
-      font-size: clamp(2.1rem, 3.6vw, 3rem);
+    .inna-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .inna-eyebrow {
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: 14px;
+    }
+    .inna h2 {
+      font-size: clamp(2.1rem, 3.8vw, 3rem);
       line-height: 1.1;
-      margin-bottom: 22px;
-    }
-    .clinician p {
-      color: var(--cocoa-soft);
-      font-size: 1.05rem;
-      max-width: 540px;
       margin-bottom: 20px;
     }
-    .clinician-creds {
-      font-size: 0.85rem !important;
-      color: rgba(51, 35, 27, 0.5) !important;
-      margin-bottom: 34px !important;
+    .inna p { color: var(--soft); font-size: 1.04rem; max-width: 540px; margin-bottom: 18px; }
+    .inna blockquote {
+      border-left: 3px solid var(--rose);
+      padding: 6px 0 6px 22px;
+      margin: 26px 0;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.3rem;
+      line-height: 1.4;
+      color: var(--maroon);
     }
+    .inna-creds { font-size: 0.85rem !important; color: rgba(59, 36, 26, 0.55) !important; margin-bottom: 30px !important; }
 
     @media (max-width: 900px) {
-      .clinician { padding: 72px 0; }
-      .clinician-grid { grid-template-columns: 1fr; gap: 44px; }
-      .clinician-photo { margin: 0 auto; }
+      .inna { padding: 68px 0; }
+      .inna-grid { grid-template-columns: 1fr; gap: 40px; }
+      .inna-photo { margin: 0 auto; }
     }
 
     /* ── RESOURCES ── */
     .resources {
       background: var(--white);
-      padding: 104px 0;
+      padding: 100px 0;
     }
-    .resources-head { text-align: center; max-width: 560px; margin: 0 auto 56px; }
-    .resources-head h2 { font-size: clamp(2.1rem, 3.6vw, 3rem); line-height: 1.1; margin-bottom: 16px; }
-    .resources-head p { color: var(--cocoa-soft); font-size: 1.05rem; }
+    .resources-head { text-align: center; max-width: 560px; margin: 0 auto 52px; }
+    .resources-head h2 { font-size: clamp(2.1rem, 3.8vw, 3rem); line-height: 1.1; margin-bottom: 14px; }
+    .resources-head p { color: var(--soft); font-size: 1.05rem; }
     .resources-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      max-width: 940px;
+      gap: 22px;
+      max-width: 920px;
       margin: 0 auto;
     }
     .resource-card {
       background: var(--cream);
       border-radius: var(--radius);
-      padding: 44px 40px;
+      padding: 42px 38px;
       text-decoration: none;
       display: block;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .resource-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(51, 35, 27, 0.09); }
+    .resource-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(100, 32, 15, 0.1); }
     .resource-tag {
       display: inline-block;
-      font-size: 0.75rem; font-weight: 500;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--rust);
-      background: rgba(199, 91, 51, 0.1);
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.11em; text-transform: uppercase;
+      color: var(--maroon);
+      background: rgba(100, 32, 15, 0.08);
       padding: 6px 14px; border-radius: 100px;
       margin-bottom: 20px;
     }
-    .resource-card h3 { font-size: 1.7rem; line-height: 1.2; margin-bottom: 12px; }
-    .resource-card p { font-size: 0.96rem; color: var(--cocoa-soft); margin-bottom: 24px; }
-    .resource-link {
-      font-size: 0.95rem; font-weight: 500;
-      color: var(--rust);
-    }
+    .resource-card h3 { font-size: 1.65rem; line-height: 1.15; margin-bottom: 12px; }
+    .resource-card p { font-size: 0.95rem; color: var(--soft); margin-bottom: 22px; }
+    .resource-link { font-size: 0.95rem; font-weight: 500; color: var(--maroon); }
 
     @media (max-width: 800px) {
-      .resources { padding: 72px 0; }
+      .resources { padding: 68px 0; }
       .resources-grid { grid-template-columns: 1fr; max-width: 460px; }
+    }
+
+    /* ── FAQ ── */
+    .faq { padding: 100px 0; }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .faq h2 {
+      font-size: clamp(2.1rem, 3.8vw, 3rem);
+      line-height: 1.1;
+      position: sticky; top: 96px;
+    }
+    .faq-item { border-bottom: 1px solid rgba(100, 32, 15, 0.15); }
+    .faq-item:first-child { border-top: 1px solid rgba(100, 32, 15, 0.15); }
+    .faq-q {
+      width: 100%;
+      background: none; border: 0; cursor: pointer;
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--maroon);
+      text-align: left;
+      padding: 22px 40px 22px 0;
+      position: relative;
+      line-height: 1.3;
+    }
+    .faq-q::after {
+      content: '+';
+      position: absolute; right: 4px; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 1.5rem;
+      color: var(--soft);
+      transition: transform 0.25s;
+    }
+    .faq-item.open .faq-q::after { transform: translateY(-50%) rotate(45deg); }
+    .faq-a {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.3s ease;
+    }
+    .faq-item.open .faq-a { grid-template-rows: 1fr; }
+    .faq-a > div { overflow: hidden; }
+    .faq-a p { font-size: 0.97rem; color: var(--soft); padding-bottom: 22px; max-width: 560px; }
+
+    @media (max-width: 860px) {
+      .faq { padding: 68px 0; }
+      .faq-grid { grid-template-columns: 1fr; gap: 32px; }
+      .faq h2 { position: static; }
     }
 
     /* ── BOOK ── */
     .book {
-      background: var(--peach);
-      padding: 104px 0 84px;
+      background: var(--blush);
+      padding: 100px 0 80px;
     }
-    .book-head { text-align: center; max-width: 620px; margin: 0 auto 44px; }
-    .book-head h2 { font-size: clamp(2.2rem, 4vw, 3.3rem); line-height: 1.08; margin-bottom: 18px; }
-    .book-head p { color: var(--cocoa-soft); font-size: 1.08rem; }
+    .book-head { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+    .book-head h2 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); line-height: 1.06; margin-bottom: 18px; }
+    .book-head p { color: var(--soft); font-size: 1.08rem; }
     .book-widget {
       max-width: 860px; margin: 0 auto;
       background: var(--white);
       border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(51, 35, 27, 0.08);
+      box-shadow: 0 20px 60px rgba(100, 32, 15, 0.1);
     }
-    .book-note { text-align: center; font-size: 0.88rem; color: var(--cocoa-soft); margin-top: 20px; }
+    .book-note { text-align: center; font-size: 0.88rem; color: var(--soft); margin-top: 20px; }
 
-    @media (max-width: 900px) { .book { padding: 72px 0 60px; } }
+    @media (max-width: 900px) { .book { padding: 68px 0 56px; } }
 
     /* ── FOOTER ── */
     .footer {
-      background: var(--cocoa);
-      padding: 56px 0 32px;
-      color: rgba(251, 243, 232, 0.7);
+      background: var(--maroon-deep);
+      padding: 54px 0 32px;
+      color: rgba(250, 241, 229, 0.7);
     }
     .footer-top {
       display: flex; align-items: flex-start; justify-content: space-between;
       flex-wrap: wrap; gap: 32px;
-      padding-bottom: 36px;
-      border-bottom: 1px solid rgba(251, 243, 232, 0.14);
+      padding-bottom: 34px;
+      border-bottom: 1px solid rgba(250, 241, 229, 0.15);
     }
     .footer .wordmark { color: var(--cream); font-size: 1.4rem; }
-    .footer .wordmark em { color: var(--blush); }
     .footer-brand p { font-size: 0.9rem; max-width: 340px; margin-top: 14px; }
     .footer-links { display: flex; flex-direction: column; gap: 8px; }
-    .footer-links a { color: rgba(251, 243, 232, 0.75); text-decoration: none; font-size: 0.92rem; }
+    .footer-links a { color: rgba(250, 241, 229, 0.78); text-decoration: none; font-size: 0.92rem; }
     .footer-links a:hover { color: var(--cream); }
     .footer-bottom {
       padding-top: 24px;
       display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
       font-size: 0.82rem;
-      color: rgba(251, 243, 232, 0.45);
+      color: rgba(250, 241, 229, 0.45);
     }
 
     /* ── REVEAL ── */
@@ -441,22 +614,24 @@
     <div class="nav-inner">
       <a href="/" class="wordmark">elevia <em>fertility</em></a>
       <nav class="nav-links" aria-label="Main">
-        <a href="#approach">Our approach</a>
-        <a href="#how">How it works</a>
-        <a href="/webinar">Masterclass</a>
+        <a href="#method">The Method</a>
+        <a href="#stories">Stories</a>
+        <a href="#inna">About Inna</a>
         <a href="/assessment">Assessment</a>
-        <a href="#book" class="nav-book">Book a free call</a>
+        <a href="/webinar">Masterclass</a>
+        <a href="#book" class="nav-book">Book a free discovery call</a>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
     <nav class="nav-mobile" id="navMobile" aria-label="Mobile">
-      <a href="#approach">Our approach</a>
-      <a href="#how">How it works</a>
-      <a href="/webinar">Masterclass</a>
+      <a href="#method">The Method</a>
+      <a href="#stories">Stories</a>
+      <a href="#inna">About Inna</a>
       <a href="/assessment">Assessment</a>
-      <a href="#book">Book a free call</a>
+      <a href="/webinar">Masterclass</a>
+      <a href="#book">Book a free discovery call</a>
     </nav>
   </header>
 
@@ -464,139 +639,179 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <h1>You're not out of <em>options.</em></h1>
-        <p class="hero-sub">For women and couples who've been trying long enough. We test what standard fertility work-ups skip — in both partners — and build a preconception plan that leaves nothing to chance.</p>
+        <span class="hero-eyebrow">Root-cause fertility care · Telehealth, Australia-wide</span>
+        <h1>You've been trying long enough. Now let's find out <em>why.</em></h1>
+        <p class="hero-sub">For women and couples trying for 12 months or more — including after IVF and after miscarriage. We investigate what standard work-ups leave unexamined, in both partners, and treat what's actually in the way.</p>
         <a href="#book" class="btn">Book your free discovery call</a>
-        <a href="/assessment" class="btn-ghost">Take the 3-min assessment</a>
-        <p class="hero-note">Free 10-minute call · Phone or video · Australia-wide telehealth</p>
-        <div class="hero-from">
-          <div class="hero-avatars">
-            <img src="trust/avatar-1.png" alt="" />
-            <img src="trust/avatar-2.png" alt="" />
-            <img src="trust/avatar-3.png" alt="" />
-            <img src="trust/avatar-4.png" alt="" />
-            <img src="trust/avatar-5.png" alt="" />
-          </div>
-          <p><strong>From the team behind Elevia Clinic</strong><br />trusted by 50,000+ women worldwide</p>
-        </div>
+        <a href="/assessment" class="btn-ghost">Take the 3-minute assessment</a>
+        <p class="hero-note">Free 10-minute call · Phone or video · No obligation</p>
       </div>
-      <div class="hero-photo">
-        <img src="L5.png" alt="Woman with hands raised to the morning sun" />
+      <div class="hero-photo img-ph">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#64200F" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M9 6l1.2-2h3.6L15 6"/></svg>
+        <span class="ph-tag">Image placeholder</span>
+        <p class="ph-desc">A couple embracing at home, warm morning light</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRED STRIP -->
+  <section class="cred">
+    <div class="container cred-inner">
+      <div class="cred-brand">
+        <div class="cred-avatars">
+          <img src="trust/avatar-1.png" alt="" />
+          <img src="trust/avatar-2.png" alt="" />
+          <img src="trust/avatar-3.png" alt="" />
+          <img src="trust/avatar-4.png" alt="" />
+          <img src="trust/avatar-5.png" alt="" />
+        </div>
+        <span>From the clinical team behind <strong>Elevia Clinic</strong></span>
+      </div>
+      <div class="cred-stats">
+        <div class="cred-stat"><div class="n">50,000+</div><div class="l">patients treated</div></div>
+        <div class="cred-stat"><div class="n">112</div><div class="l">countries served</div></div>
+        <div class="cred-stat"><div class="n">Decades</div><div class="l">combined clinical experience</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU'VE BEEN TOLD -->
+  <section class="told">
+    <div class="container">
+      <div class="told-head reveal">
+        <h2>How many times have you <em>heard this?</em></h2>
+        <p>If you've been trying for a while, chances are you know these lines by heart.</p>
+      </div>
+      <div class="told-quotes">
+        <div class="told-quote reveal">Everything looks normal.</div>
+        <div class="told-quote reveal">Just relax — it'll happen.</div>
+        <div class="told-quote reveal">IVF is your only option.</div>
+        <div class="told-quote reveal">Come back in six months.</div>
+      </div>
+      <div class="told-counter reveal">
+        <p>Hearing "it's all normal" has never brought anyone's baby closer.<br /><em>Finding what's actually in the way — does.</em></p>
       </div>
     </div>
   </section>
 
   <!-- WHO IT'S FOR -->
-  <section class="who">
-    <div class="container">
-      <div class="who-head reveal">
-        <h2>"Unexplained" is not an <em>answer.</em></h2>
-        <p>If any of these sound like you, you're exactly who we built this clinic for.</p>
-      </div>
-      <div class="who-grid">
-        <div class="who-card reveal">
-          <h3>Trying 12+ months</h3>
-          <p>You've done everything "right" — tracked, timed, waited — and each month it still isn't happening.</p>
-        </div>
-        <div class="who-card reveal">
-          <h3>Told it's "unexplained"</h3>
-          <p>Your tests came back "normal", but nobody has looked deeper than the standard panel.</p>
-        </div>
-        <div class="who-card reveal">
-          <h3>After IVF hasn't worked</h3>
-          <p>One or more cycles behind you, and no one has asked why they didn't take.</p>
-        </div>
-        <div class="who-card reveal">
-          <h3>After miscarriage</h3>
-          <p>You deserve more than "just try again." We look for the reasons, gently and thoroughly.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- APPROACH -->
-  <section class="approach" id="approach">
-    <div class="container approach-grid">
-      <div class="approach-photo reveal">
-        <img src="L3.png" alt="Woman sitting calmly in her living room" />
+  <section class="for">
+    <div class="container for-grid">
+      <div class="for-photo img-ph reveal">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#64200F" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M9 6l1.2-2h3.6L15 6"/></svg>
+        <span class="ph-tag">Image placeholder</span>
+        <p class="ph-desc">A woman looking thoughtfully out a window, holding a cup of tea</p>
       </div>
       <div class="reveal">
-        <h2>We look where others <em>haven't.</em></h2>
-        <p class="approach-lead">Conception depends on far more than ovulation day. Our clinicians investigate the full picture — for both of you — then correct what's in the way.</p>
-        <div class="approach-item">
-          <div class="approach-dot"></div>
-          <div>
-            <h3>Both partners, properly tested</h3>
-            <p>Comprehensive hormone, thyroid and nutrient panels for her — and a full analysis for him. Half of fertility is male-factor; we never skip it.</p>
-          </div>
-        </div>
-        <div class="approach-item">
-          <div class="approach-dot"></div>
-          <div>
-            <h3>Egg &amp; sperm quality, not just quantity</h3>
-            <p>The 90–120 days before conception shape the quality of both. We use that window deliberately.</p>
-          </div>
-        </div>
-        <div class="approach-item">
-          <div class="approach-dot"></div>
-          <div>
-            <h3>Root causes, treated together</h3>
-            <p>Thyroid, insulin, inflammation, stress, sleep, nutrition — small imbalances stack up. We address them as one plan, not ten referrals.</p>
-          </div>
-        </div>
-        <div class="approach-item">
-          <div class="approach-dot"></div>
-          <div>
-            <h3>Works alongside IVF, or before it</h3>
-            <p>Whether you're preparing for a cycle or hoping to avoid one, the groundwork is the same: a body that's genuinely ready.</p>
-          </div>
-        </div>
+        <h2>This clinic exists for <em>you</em> if…</h2>
+        <p class="for-lead">We work with the complex cases — the ones who've already tried the obvious things.</p>
+        <ul class="for-list">
+          <li><span><strong>You've been trying 12+ months</strong> — tracking, timing, doing everything "right"</span></li>
+          <li><span><strong>You've been told it's "unexplained"</strong> — but no one has looked beyond the standard panel</span></li>
+          <li><span><strong>IVF hasn't worked</strong> — one or more cycles, and no real answers about why</span></li>
+          <li><span><strong>You've experienced miscarriage</strong> — and "just try again" isn't good enough for you</span></li>
+          <li><span><strong>You're preparing for pregnancy</strong> — and want your body genuinely ready, not just willing</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="how" id="how">
+  <!-- THE METHOD -->
+  <section class="method" id="method">
     <div class="container">
-      <div class="how-head reveal">
-        <h2>Three steps to a real <em>plan.</em></h2>
-        <p>No waiting rooms, no six-month referral queues. Everything happens by telehealth.</p>
+      <div class="method-head reveal">
+        <h2>The Elevia Fertility <em>Method</em></h2>
+        <p>A six-phase clinical framework that investigates and treats every factor standing between you and a healthy pregnancy.</p>
       </div>
-      <div class="how-grid">
-        <div class="how-card reveal">
-          <div class="how-num">01</div>
-          <h3>Free discovery call</h3>
-          <p>Ten minutes with our clinical team. Tell us your story — we'll tell you honestly if we believe we can help.</p>
+      <p class="method-tagline reveal">Nothing assumed. Nothing skipped. No stone left unturned.</p>
+      <div class="method-grid">
+        <div class="method-card reveal">
+          <div class="method-num">Phase 01</div>
+          <h3>Understand</h3>
+          <p>A 360° case review — your full history, cycles, past results, previous treatments. Both partners, from the very first conversation.</p>
         </div>
-        <div class="how-card reveal">
-          <div class="how-num">02</div>
-          <h3>Deep testing, both partners</h3>
-          <p>Pathology ordered near home. We assess the markers standard fertility work-ups routinely leave out.</p>
+        <div class="method-card reveal">
+          <div class="method-num">Phase 02</div>
+          <h3>Test</h3>
+          <p>Comprehensive panels that standard work-ups skip: full thyroid, cycle-mapped hormones, nutrients, insulin, inflammation — and a complete semen analysis.</p>
         </div>
-        <div class="how-card reveal">
-          <div class="how-num">03</div>
-          <h3>Your preconception plan</h3>
-          <p>A personalised 120-day program — treatment, nutrition and lifestyle — reviewed with your clinician as your results change.</p>
+        <div class="method-card reveal">
+          <div class="method-num">Phase 03</div>
+          <h3>Correct</h3>
+          <p>Treat the root causes the testing reveals — with conventional medicine and evidence-based natural therapies working together, not in competition.</p>
+        </div>
+        <div class="method-card reveal">
+          <div class="method-num">Phase 04</div>
+          <h3>Prepare</h3>
+          <p>Egg and sperm take around 120 days to mature. We use that window deliberately — nutrition, lifestyle and treatment aligned to one goal: quality.</p>
+        </div>
+        <div class="method-card reveal">
+          <div class="method-num">Phase 05</div>
+          <h3>Conceive</h3>
+          <p>Timed naturally with your cycle — or coordinated alongside your IVF clinic so you walk into a cycle with your best possible biology.</p>
+        </div>
+        <div class="method-card reveal">
+          <div class="method-num">Phase 06</div>
+          <h3>Protect</h3>
+          <p>Conception isn't the finish line. We support you through the delicate early weeks, monitoring and adjusting as your pregnancy establishes.</p>
         </div>
       </div>
-      <div class="how-cta reveal">
-        <a href="#book" class="btn">Book your free discovery call</a>
+      <div class="method-cta reveal">
+        <a href="#book" class="btn">Find out if the Method fits your case</a>
       </div>
     </div>
   </section>
 
-  <!-- CLINICIAN -->
-  <section class="clinician">
-    <div class="container clinician-grid">
-      <div class="clinician-photo reveal">
-        <img src="headshot 2.png" alt="Inna, Elevia Fertility senior clinician" />
+  <!-- STORIES -->
+  <section class="stories" id="stories">
+    <div class="container">
+      <div class="stories-head reveal">
+        <h2>The families who <em>got there.</em></h2>
+        <p>Patient stories are being filmed now — the first three arrive here soon.</p>
+      </div>
+      <div class="stories-grid">
+        <div class="story-card reveal">
+          <div class="story-media img-ph">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#64200F" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z" fill="#64200F" stroke="none"/></svg>
+            <span class="ph-tag">Video placeholder</span>
+            <p class="ph-desc">A couple at home with their newborn, telling their story</p>
+          </div>
+          <div class="story-body"><p>Story one — after years of "unexplained".</p></div>
+        </div>
+        <div class="story-card reveal">
+          <div class="story-media img-ph">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#64200F" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z" fill="#64200F" stroke="none"/></svg>
+            <span class="ph-tag">Video placeholder</span>
+            <p class="ph-desc">A mother holding her baby's feet, interview style</p>
+          </div>
+          <div class="story-body"><p>Story two — when IVF alone wasn't enough.</p></div>
+        </div>
+        <div class="story-card reveal">
+          <div class="story-media img-ph">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#64200F" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z" fill="#64200F" stroke="none"/></svg>
+            <span class="ph-tag">Video placeholder</span>
+            <p class="ph-desc">A couple's pregnancy announcement moment</p>
+          </div>
+          <div class="story-body"><p>Story three — pregnancy after recurrent loss.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT INNA -->
+  <section class="inna" id="inna">
+    <div class="container inna-grid">
+      <div class="inna-photo reveal">
+        <img src="headshot 2.png" alt="Inna, founder and senior clinician, Elevia Fertility" />
       </div>
       <div class="reveal">
+        <p class="inna-eyebrow">Your clinician</p>
         <h2>Meet <em>Inna.</em></h2>
-        <p>Inna leads the Elevia clinical team — qualified Naturopathic Doctors and integrative medicine practitioners with decades of combined experience in women's hormone and reproductive health.</p>
-        <p>Her approach is simple: your fertility story hasn't been fully read yet. Every plan starts with listening, tests what others assume, and treats the causes — with conventional medicine and proven natural therapies working together.</p>
-        <p class="clinician-creds">BHSc (ND) · Dip (Pharm) · Adv Dip (Nat) · BA · ATMS Hormone Specialist</p>
-        <a href="#book" class="btn">Talk to Inna's team — free</a>
+        <p>Inna leads the Elevia clinical team — qualified Naturopathic Doctors and integrative medicine practitioners who have spent decades in women's hormone and reproductive health, treating patients across 112 countries.</p>
+        <blockquote>"When a couple is told 'unexplained', it almost always means 'not yet investigated'. My job is the investigation."</blockquote>
+        <p>Every case starts with her team listening to your whole story — then testing what others assumed, and building a plan that treats causes, not chances.</p>
+        <p class="inna-creds">BHSc (ND) · Dip (Pharm) · Adv Dip (Nat) · BA · ATMS Hormone Specialist</p>
+        <a href="#book" class="btn">Book a free call with Inna's team</a>
       </div>
     </div>
   </section>
@@ -605,22 +820,51 @@
   <section class="resources">
     <div class="container">
       <div class="resources-head reveal">
-        <h2>Start with a smaller <em>step.</em></h2>
-        <p>Not ready to talk yet? These two free resources are the best place to begin.</p>
+        <h2>Not ready to talk? <em>Start here.</em></h2>
+        <p>Two free resources from our clinical team — no appointment needed.</p>
       </div>
       <div class="resources-grid">
         <a href="/assessment" class="resource-card reveal">
-          <span class="resource-tag">3-minute quiz</span>
+          <span class="resource-tag">Free · 3-minute quiz</span>
           <h3>The Fertility Gap Assessment</h3>
-          <p>Ten questions to reveal the gaps in your current approach — testing, timing, foundations and plan — with your personal readiness score.</p>
+          <p>Ten questions to reveal the gaps in your current approach — testing, foundations, plan — with your personal readiness score out of 100.</p>
           <span class="resource-link">Take the assessment →</span>
         </a>
         <a href="/webinar" class="resource-card reveal">
-          <span class="resource-tag">Free masterclass</span>
+          <span class="resource-tag">Free · 50-minute masterclass</span>
           <h3>Why "Keep Trying" Isn't a Plan</h3>
-          <p>Our 50-minute masterclass on the root-cause approach to conception — what standard work-ups miss and what to do about it.</p>
+          <p>Inna's masterclass on the root-cause approach to conception — what standard fertility work-ups miss, and what to do about it.</p>
           <span class="resource-link">Watch the masterclass →</span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container faq-grid">
+      <h2 class="reveal">Questions, <em>answered.</em></h2>
+      <div class="reveal">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Is everything really done by telehealth?</button>
+          <div class="faq-a"><div><p>Yes. Consultations happen by phone or video, Australia-wide. Pathology is ordered to a collection centre near you, and your plan is delivered and reviewed online. No waiting rooms, no travel.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">We're already doing IVF. Is this still relevant?</button>
+          <div class="faq-a"><div><p>Especially then. The Method works alongside your IVF clinic — preparing egg and sperm quality before a cycle and addressing the factors that influence implantation. Many patients come to us specifically between cycles.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Does my partner need to be involved?</button>
+          <div class="faq-a"><div><p>We strongly encourage it — male factors contribute in around half of all fertility challenges, and testing both partners is core to the Method. But we'll meet you where you are and start with what's possible.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What does the discovery call involve?</button>
+          <div class="faq-a"><div><p>Ten minutes, free, with Inna's clinical team. You tell us your story; we tell you honestly whether we believe we can help, what we'd investigate first, and what working together looks like. No pressure, no obligation.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How long before we can start trying?</button>
+          <div class="faq-a"><div><p>You don't stop trying — we work with your natural cycles throughout. The preparation phase focuses on the ~120-day window that shapes egg and sperm quality, so improvements begin from the first month.</p></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -629,11 +873,11 @@
   <section class="book" id="book">
     <div class="container">
       <div class="book-head reveal">
-        <h2>Ten minutes could change <em>everything.</em></h2>
-        <p>Book your free discovery call with Inna's team. No cost, no obligation — just an honest conversation about what's possible for you.</p>
+        <h2>Your first step is a <em>conversation.</em></h2>
+        <p>Book your free 10-minute discovery call with Inna's clinical team. Bring your questions, your history, your frustrations — we've heard it all, and we know what to ask next.</p>
       </div>
       <div class="book-widget reveal">
-        <!-- Calendly inline widget: currently the Elevia Clinic event; swap data-url for a dedicated fertility discovery-call event when created -->
+        <!-- Calendly inline widget: swap data-url for a dedicated fertility discovery-call event when created -->
         <div class="calendly-inline-widget" data-url="https://calendly.com/admin-eleviaclinic/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
         <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
       </div>
@@ -674,6 +918,14 @@
       mobile.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
     }));
+
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.closest('.faq-item');
+        const open = item.classList.toggle('open');
+        q.setAttribute('aria-expanded', open);
+      });
+    });
 
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
